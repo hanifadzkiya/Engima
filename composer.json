@@ -1,0 +1,10 @@
+{
+    "name": "wbd/tugas-besar-1-2019",
+    "description": "Tugas WBD tercinta",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Engima\\": ""
+        }
+    }
+}
