@@ -1,6 +1,7 @@
-<?php 
-include("./Database.php");
-class Engima extends Database{
+<?php  
+namespace Engima\Model;
+use Engima\Database;
+class Engima extends Database {
 	private $dbname = "engima";
 
 	function __construct(){
@@ -9,9 +10,9 @@ class Engima extends Database{
 	public function create(){
 		$sql = "CREATE DATABASE IF NOT EXISTS " . $this->dbname;
 		if ($this->runQuery($sql) === TRUE) {
-		    echo "Database created successfully";
+		    echo "Database created successfully\n";
 		} else {
-		    echo "Error creating database: " . $this->getConn()->error;
+		    echo "Error creating database: " . $this->getConn()->error . "\n";
 		
 		$sql =  "CREATE TABLE ". "users" . " (
 			uuid varchar(255) PRIMARY KEY,
@@ -24,5 +25,6 @@ class Engima extends Database{
 			UNIQUE (uuid,name,email)
 			)";
 		$this->runQuery($sql);
+		}
 	}
 }
