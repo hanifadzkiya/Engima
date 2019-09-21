@@ -3,6 +3,11 @@
 	use Engima\Model\Engima;
 	use Engima\Model\User;
 	use Engima\Model\Film;
+	use Engima\Model\Review;
+	use Engima\Model\Jadwal;
+	use Engima\Model\Kursi;	
+	use Engima\Model\Genre;
+	use Engima\Model\FilmGenre;
 	print("--create database engima--\n");
 	$engima = new Engima();
 	$engima->connect();
@@ -13,4 +18,19 @@
 	print("--create table film--\n");
 	$film = new Film();
 	$film->createTable();
+	print("--create table review--\n");
+	$review = new Review();
+	$review->createTable();
+	print("--create table jadwal--\n");
+	$jadwal = new Jadwal();
+	$jadwal->createTable();
+	print("--create table kursi--\n");
+	$kursi = new Kursi();
+	$kursi->createTable();
+	print("--create table genre--\n");
+	$genre = new Genre();
+	$genre->createTable();
+	print("--create table film_genre--\n");
+	$film_genre = new FilmGenre();
+	$film_genre->createTable();
 ?>

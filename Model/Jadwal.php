@@ -1,9 +1,9 @@
 <?php
 namespace Engima\Model;
 use Engima\Database;
-Class User extends Database {
+Class Jadwal extends Database {
 	private $dbname = "engima";
-	private $tablename = "user";
+	private $tablename = "jadwal";
 
 	function __construct(){
 		parent::__construct();
@@ -14,12 +14,9 @@ Class User extends Database {
 		if(!$this->isTableExist($this->tablename)){
 			$sql = "CREATE TABLE ". $this->tablename . " (
 				id varchar(255) PRIMARY KEY,
-				name VARCHAR(255) NOT NULL,
-				email VARCHAR(255) NOT NULL,
-				phone_number VARCHAR(20) NOT NULL,
-				password VARCHAR(255) NOT NULL,
-				profil_picture VARCHAR(255) NOT NULL,
-				UNIQUE (id,name,email)
+				film_id VARCHAR(255) NOT NULL,
+				jam_tayang DATETIME NOT NULL,
+				FOREIGN KEY (film_id) REFERENCES film(id)
 				)";
 			if ($this->runQuery($sql) === TRUE) {
 			    echo "Table created successfully\n";
@@ -32,6 +29,6 @@ Class User extends Database {
 	}
 
 	public function add(){
-		echo $this->getUUID();
+		
 	}
 }
