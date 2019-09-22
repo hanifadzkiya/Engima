@@ -12,8 +12,8 @@
 			<h3>September 4, 2019 - 09.40 pm </h3>
 		</div>
 		<div class="row">
-		  <div class="column" style="border-right: 1px solid #a7a7a7; padding-right: 50px;">
-				<ul style="padding: 0px;">
+		  <div class="column" style="border-right: 1px solid #a7a7a7; padding-right: 50px; ">
+				<ul style="padding: 0px; display: flex; flex-wrap: wrap; font-size: 12px;">
 					<li class="full"><b>1</b></li>
 					<li class="empty">2</li>
 					<li class="full">3</li>
@@ -51,9 +51,9 @@
 		  </div>
 		  <div class="column" style="margin-left: 50px;">
 				<h3 style="margin-top: 0px;">Booking Summary</h3>
-				<h4>Avengers: Endgame</h4>
+				<p><b>Avengers: Endgame</b></p>
 				<p>September 4, 2019 - 09.40 PM </p>
-				<h4>Seat #18</h4>
+				<p><b>Seat #18</b></p>
 				<button id="buy-button">Buy Ticket</button>
 		  </div>
 		</div>
@@ -71,11 +71,11 @@
 		font-family: 'Lato', sans-serif;
 	}
 	#content {
-		width: 60%;
+		width: 75%;
 		height: 100%;
 		background-color: #ffffff;
 		margin: auto;
-		padding: 100px;
+		padding: 100px 5%;
 	}
 	#film {
 		border-bottom: 1px solid #a7a7a7;
@@ -89,7 +89,7 @@
 		clear: both;
 		padding: 5px 0px;
 		border-radius: 5px;
-		margin: 10px 0px;
+		margin-top: 20px;
 	}
 	#buy-button {
 		position: absolute;
@@ -108,9 +108,10 @@
 
 	ul li{
 	  float:left;
-	  padding:10px;
+	  padding:1.6%;
 	  border-bottom:1px solid #000;
 	  border-right:1px solid #000;
+	  margin: 1.6%;
 	}
 
 	.full {
@@ -121,7 +122,6 @@
 		height: 16px;
 		text-align: center;
 		background-color: #f0eeef;
-		margin: 8px;
 	}
 
 	.empty {
@@ -132,7 +132,6 @@
 		height: 16px;
 		text-align: center;
 		background-color: #ffffff;
-		margin: 8px;
 	}
 	.row {
 	  display: flex;
