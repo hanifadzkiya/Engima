@@ -7,9 +7,11 @@
 <body>
 <div id="content">
 		<div id="film">
-			<img src="images/right-icon.png">
-			<h2>Avengers: Endgame</h2>
-			<h3>September 4, 2019 - 09.40 pm </h3>
+			<img width="50px" height="50px" src="images/right-icon.png">
+			<div style="display: inline-block;">
+				<h2 style="margin: 0px;">Avengers: Endgame</h2>
+				<p><b>September 4, 2019 - 09.40 pm</b></p>
+			</div>
 		</div>
 		<div class="row">
 		  <div class="column" style="border-right: 1px solid #a7a7a7; padding-right: 50px; ">
@@ -50,10 +52,13 @@
 				</div>
 		  </div>
 		  <div class="column" style="margin-left: 50px;">
-				<h3 style="margin-top: 0px;">Booking Summary</h3>
+				<h3 style="margin-top: 0px; color: #606060">Booking Summary</h3>
 				<p><b>Avengers: Endgame</b></p>
 				<p>September 4, 2019 - 09.40 PM </p>
-				<p><b>Seat #18</b></p>
+				<div id="textbox">
+					<p style="float: left;"><b>Seat #18</b></p>
+					<p style="float: right;"><b>Rp 45000</b></p>
+				</div>
 				<button id="buy-button">Buy Ticket</button>
 		  </div>
 		</div>
@@ -69,6 +74,9 @@
 		margin: 0px;
 		height:100%;
 		font-family: 'Lato', sans-serif;
+	}
+	p {
+		font-size: 12px;
 	}
 	#content {
 		width: 75%;
@@ -111,7 +119,7 @@
 	  padding:1.6%;
 	  border-bottom:1px solid #000;
 	  border-right:1px solid #000;
-	  margin: 1.6%;
+	  margin: 0 1.6% 2% 1.6%;
 	}
 
 	.full {
