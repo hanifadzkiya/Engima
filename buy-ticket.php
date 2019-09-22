@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
 <div id="content">
 		<div id="film">
 			<img width="50px" height="50px" src="images/right-icon.png">
@@ -14,7 +15,7 @@
 			</div>
 		</div>
 		<div class="row">
-		  <div class="column" style="border-right: 1px solid #a7a7a7; padding-right: 50px; ">
+		  <div class="column seat">
 				<ul style="padding: 0px; display: flex; flex-wrap: wrap; font-size: 12px;">
 					<li class="full"><b>1</b></li>
 					<li class="empty">2</li>
@@ -51,8 +52,8 @@
 					Screen
 				</div>
 		  </div>
-		  <div class="column" style="margin-left: 50px;">
-				<h3 style="margin-top: 0px; color: #606060">Booking Summary</h3>
+		  <div class="column summary">
+				<h3 id="summary-title">Booking Summary</h3>
 				<p><b>Avengers: Endgame</b></p>
 				<p>September 4, 2019 - 09.40 PM </p>
 				<div id="textbox">
@@ -100,14 +101,16 @@
 		margin-top: 20px;
 	}
 	#buy-button {
-		position: absolute;
-	    bottom: 0;
-	    right: 0px;
 	    background-color: #00e1ec;
 	    color:white;
 	    padding: 10px;
 	    border: none;
 	    border-radius: 5px;
+	}
+
+	#summary-title {
+		margin-top: 0px; 
+		color: #606060;
 	}
 	ul{
 	  list-style:none;
@@ -145,13 +148,47 @@
 	  display: flex;
 	}
 
+	.seat {
+		border-right: 1px solid #a7a7a7; 
+		padding-right: 50px; 
+	}
+	.summary {
+		margin-left: 50px;
+	}
+
 	/* Create two equal columns that sits next to each other */
 	.column {
 	  flex: 50%;
 	  position: relative;
 	}
 
+	@media only screen and (min-width: 600px) {
+		#buy-button {
+			position: absolute;
+		    bottom: 0;
+		    right: 0px;
+		}
+	}
+
 	@media only screen and (max-width: 600px) {
+		.row {
+			display: block;
+		}
+		.column {
+			border: none;
+			padding: 0px;
+			margin: 10px 0px;
+		}
+		#summary-title {
+			text-align: center;
+		}
+		#textbox {
+			height: 50px;
+			width: 100%;
+		}
+		#buy-button {
+			margin: auto;
+		}	
 	}
 </style>
 </html>
