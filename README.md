@@ -1,5 +1,12 @@
 # Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web
 
+## HOW TO INSTALL DATABASE ##
+1. Install package yang diperlukan dengan melakukan perintah composer install
+2. Membuat .env mengikuti contoh di .env.example
+3. Jalankan perintah php Migration.php
+
+#----------------------------------------------------------------#
+
 ## Deskripsi Singkat
 
 Saat ini Engi ingin melakukan ekspansi usaha dengan membangun sebuah bioskop. Setelah berdiri selama 2 bulan, Engi merasa bioskopnya sepi dibanding bioskop kompetitor lainnya. Usut punya usut, ternyata faktor utama penyebab sepinya bioskop Engi adalah tidak adanya kemudahan pemesanan tiket secara daring. Oleh karena itu, Engi meminta Anda untuk membuat aplikasi web pemesanan tiket bioskop daring. Engi menginginkan website miliknya untuk memiliki fitur pembelian tiket, memberi ulasan pada film yang telah ditonton, login dan register, riwayat pembelian tiket.
