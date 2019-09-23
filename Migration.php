@@ -1,5 +1,6 @@
 <?php
 	require_once __DIR__ .'/vendor/autoload.php';
+	print __DIR__ .'/vendor/autoload.php';
 	use Engima\Model\Engima;
 	use Engima\Model\User;
 	use Engima\Model\Film;
