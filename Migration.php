@@ -1,14 +1,13 @@
 <?php
-	require_once __DIR__ .'/vendor/autoload.php';
-	print __DIR__ .'/vendor/autoload.php';
-	use Engima\Model\Engima;
-	use Engima\Model\User;
-	use Engima\Model\Film;
-	use Engima\Model\Review;
-	use Engima\Model\Jadwal;
-	use Engima\Model\Kursi;	
-	use Engima\Model\Genre;
-	use Engima\Model\FilmGenre;
+	require_once __DIR__ .'/Model/Engima.php';
+	require_once __DIR__ .'/Model/User.php';
+	require_once __DIR__ .'/Model/Film.php';
+	require_once __DIR__ .'/Model/Review.php';
+	require_once __DIR__ .'/Model/Jadwal.php';
+	require_once __DIR__ .'/Model/Kursi.php';
+	require_once __DIR__ .'/Model/Genre.php';
+	require_once __DIR__ .'/Model/FilmGenre.php';
+	
 	print("--create database engima--\n");
 	$engima = new Engima();
 	$engima->connect();
