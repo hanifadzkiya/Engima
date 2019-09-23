@@ -1,6 +1,6 @@
 <?php
-namespace Engima\Model;
-use Engima\Database;
+require_once __DIR__ .'/../Database.php';
+
 Class User extends Database {
 	private $dbname = "engima";
 	private $tablename = "user";
@@ -31,7 +31,20 @@ Class User extends Database {
 		}
 	}
 
-	public function add(){
-		echo $this->getUUID();
+	public function add($name,$email,$phone_number,$password,$profil_picture){
+		$sql = "INSERT INTO ". $this->tablename . " (id, name, email, phone_number, password, profil_picture) VALUES ('" . $this->getUUID() . "','".$name."','".$email."','".$phone_number."','".$this->encrypt($password)."','".$profil_picture."')";
+		if ($this->runQuery($sql) === TRUE) {
+		    echo "New record created successfully";
+		} else {
+		    echo "Error: " . $sql . "<br>" . $this->getConn()->error;
+		}
+	}
+
+	public function verify($password_input,$password_hash){
+		return (crypt($password_input, $password_hash) == $password_hash);
+	}
+
+	public function encrypt($password){
+		return crypt($password);
 	}
 }
