@@ -1,6 +1,6 @@
 <?php  
-namespace Engima\Model;
-use Engima\Database;
+require_once __DIR__ .'/../Database.php';
+
 class Engima extends Database {
 	private $dbname = "engima";
 
