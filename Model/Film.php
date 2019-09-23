@@ -1,6 +1,6 @@
 <?php
-namespace Engima\Model;
-use Engima\Database;
+require_once __DIR__ .'/../Database.php';
+
 Class Film extends Database {
 	private $dbname = "engima";
 	private $tablename = "film";
@@ -31,7 +31,17 @@ Class Film extends Database {
 		}
 	}
 
-	public function add(){
-		
+	public function add($judul, $poster, $rating, $tanggal_rilis, $durasi_tayang, $sinopsis){
+		$sql = "INSERT INTO ". $this->tablename . " (id, judul, poster, rating, tanggal_rilis, durasi_tayang, sinopsis) VALUES ('" . $this->getUUID() . "','".$judul."','".$poster."','".$rating."','".$tanggal_rilis."','".$durasi_tayang."','".$sinopsis."')";
+		if ($this->runQuery($sql) === TRUE) {
+		    echo "New record created successfully";
+		} else {
+		    echo "Error: " . $sql . "<br>" . $this->getConn()->error;
+		}
+	}
+
+	public function getAll(){
+		$sql = "SELECT * FROM ".$this->tablename;
+		return $this->runQuery($sql);
 	}
 }
