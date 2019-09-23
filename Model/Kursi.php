@@ -30,7 +30,26 @@ Class Kursi extends Database {
 		}
 	}
 
-	public function add(){
-		
+	public function add($jadwal_id,$nomor,$user_id){
+		$sql = "INSERT INTO ". $this->tablename . " (id, jadwal_id, nomor, user_id) VALUES ('" . $this->getUUID() . "','".$jadwal_id. "','".$nomor. "','".$user_id."')";
+		if ($this->runQuery($sql) === TRUE) {
+		    echo "New record created successfully";
+		} else {
+		    echo "Error: " . $sql . "<br>" . $this->getConn()->error;
+		}
+	}
+
+	public function addWithoutUser($jadwal_id,$nomor){
+		$sql = "INSERT INTO ". $this->tablename . " (id, jadwal_id, nomor) VALUES ('" . $this->getUUID() . "','".$jadwal_id. "','".$nomor."')";
+		if ($this->runQuery($sql) === TRUE) {
+		    echo "New record created successfully";
+		} else {
+		    echo "Error: " . $sql . "<br>" . $this->getConn()->error;
+		}
+	}
+
+	public function getAll(){
+		$sql = "SELECT * FROM ".$this->tablename;
+		return $this->runQuery($sql);
 	}
 }

@@ -36,4 +36,15 @@ Class Jadwal extends Database {
 		    echo "Error: " . $sql . "<br>" . $this->getConn()->error;
 		}
 	}
+
+	public function getAll(){
+		$sql = "SELECT * FROM ".$this->tablename;
+		return $this->runQuery($sql);
+	}
+
+	public function getById($id){
+		$sql = "SELECT * FROM ".$this->tablename." WHERE id = '".$id."'";
+		print($sql);
+		return $this->runQuery($sql);
+	}
 }

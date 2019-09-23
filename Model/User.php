@@ -47,4 +47,9 @@ Class User extends Database {
 	public function encrypt($password){
 		return crypt($password);
 	}
+
+	public function getAll(){
+		$sql = "SELECT * FROM ".$this->tablename;
+		return $this->runQuery($sql);
+	}
 }

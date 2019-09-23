@@ -31,7 +31,12 @@ Class Review extends Database {
 		}
 	}
 
-	public function add(){
-		
+	public function add($user_id,$film_id,$review,$rating){
+		$sql = "INSERT INTO ". $this->tablename . " (id, user_id, film_id, review, rating) VALUES ('" . $this->getUUID() . "','".$user_id. "','".$film_id. "','".$review. "','".$rating."')";
+		if ($this->runQuery($sql) === TRUE) {
+		    echo "New record created successfully";
+		} else {
+		    echo "Error: " . $sql . "<br>" . $this->getConn()->error;
+		}
 	}
 }
