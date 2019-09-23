@@ -1,6 +1,6 @@
 <?php
-namespace Engima\Model;
-use Engima\Database;
+require_once __DIR__ .'/../Database.php';
+
 Class FilmGenre extends Database {
 	private $dbname = "engima";
 	private $tablename = "film_genre";
@@ -29,7 +29,12 @@ Class FilmGenre extends Database {
 		}
 	}
 
-	public function add(){
-		
+	public function add($id_film,$id_genre){
+		$sql = "INSERT INTO ". $this->tablename . " (id_film, id_genre) VALUES ('" . $id_film . "','".$id_genre."')";
+		if ($this->runQuery($sql) === TRUE) {
+		    echo "New record created successfully";
+		} else {
+		    echo "Error: " . $sql . "<br>" . $this->getConn()->error;
+		}
 	}
 }
