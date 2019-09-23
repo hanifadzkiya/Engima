@@ -1,9 +1,9 @@
 # Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web
 
 ## HOW TO INSTALL DATABASE ##
-1. Install package yang diperlukan dengan melakukan perintah composer install
-2. Membuat .env mengikuti contoh di .env.example
-3. Jalankan perintah php Migration.php
+1. Masukkan variable environment yang dibutuhkan untuk akses ke database di file Config.php
+2. Buat semua table dengan menjalankan file Migration.php
+3. Membuat semua tuple dengan cara menjalankan semua file di folder Seed
 
 #----------------------------------------------------------------#
 
