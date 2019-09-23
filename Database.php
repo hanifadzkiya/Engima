@@ -1,5 +1,4 @@
 <?php
-namespace Engima;
 use Mysqli;
 class Database {
 	private $servername;
