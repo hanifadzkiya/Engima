@@ -227,7 +227,6 @@
     color: grey;
 }
 .link a {
-    float: right;
     margin-left: 20px;
     font-size: 13px;
     text-decoration: none;
@@ -244,11 +243,21 @@
 }
 
 
-	@media only screen and (min-width: 600px) {
+	@media only screen and (min-width: 800px) {
 		#buy-button {
 			position: absolute;
 		    bottom: 0;
 		    right: 0px;
+		}
+		/* Navbar */
+		.engi {
+			float: left;
+		}
+		.search-container {
+			float: left;
+		}
+		.link a {
+		    float: right;
 		}
 	}
 
@@ -277,6 +286,15 @@
 		  border-bottom:1px solid #000;
 		  border-right:1px solid #000;
 		  margin: 0 0.525% 2% 0.525%;
+		}
+		/* Navbar */
+		.search-container {
+		    width: 100%;
+		    padding: 0px;
+		    margin: 10px 0px;
+		}
+		.link {
+			text-align: center;
 		}
 	}
 </style>
