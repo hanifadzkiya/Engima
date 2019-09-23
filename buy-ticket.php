@@ -5,7 +5,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
+    <div class="nav">
+        <div class="nav_content">
+            <div class="engi"><b>Engi</b>ma</div>
+            <div class="search-container">
+                <form action="/action_page.php"><!--GANTI NANTI-->
+                    <input type="text" placeholder="Search Movie" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="link">
+                <a href="#">Logout</a>
+                <a href="#">Transactions</a>
+            </div>
+        </div>
+    </div>
 <div id="content">
 		<div id="film">
 			<img width="50px" height="50px" src="images/right-icon.png">
@@ -80,7 +94,7 @@
 		font-size: 12px;
 	}
 	#content {
-		width: 75%;
+		width: 67%;
 		height: 100%;
 		background-color: #ffffff;
 		margin: auto;
@@ -119,10 +133,10 @@
 
 	ul li{
 	  float:left;
-	  padding:1.6%;
+	  padding:1.37%;
 	  border-bottom:1px solid #000;
 	  border-right:1px solid #000;
-	  margin: 0 1.6% 2% 1.6%;
+	  margin: 0 1.37% 2% 1.37%;
 	}
 
 	.full {
@@ -162,6 +176,74 @@
 	  position: relative;
 	}
 
+/*NAVIGATION*/
+.nav{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    -webkit-box-shadow: 0px 5px 7px -2px rgba(33,33,33,0.15); 
+    box-shadow: 0px 5px 7px -2px rgba(33,33,33,0.15);
+    background-color: white;
+    padding: 15px 0;
+    z-index: 1;
+}
+.nav_content{
+    width: 67%;
+    margin: auto;
+}
+.engi {
+    float: left;
+    display: block;
+    margin-right: 20px;
+}
+.engi b{
+    color: #00C1EC;
+}
+.search-container{
+    float: left;
+    display: block;
+    margin: 0 20px;
+    border: 1px solid #c9c9c9;
+    padding: 0 5px;
+    border-radius: 5px;
+    width: 22%;
+    min-width:100px;
+}
+.search-container input{
+    border: none;
+    width: 80%;
+    padding-left: 5px;
+}
+::placeholder{
+    color: grey;
+    font-size: 12px;
+}
+.search-container button{
+    float: right;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: grey;
+}
+.link a {
+    float: right;
+    margin-left: 20px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+.link a:hover{
+    color: #c9c9c9;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+
 	@media only screen and (min-width: 600px) {
 		#buy-button {
 			position: absolute;
@@ -189,6 +271,13 @@
 		#buy-button {
 			margin: auto;
 		}	
+		ul li{
+		  float:left;
+		  padding:0.525%;
+		  border-bottom:1px solid #000;
+		  border-right:1px solid #000;
+		  margin: 0 0.525% 2% 0.525%;
+		}
 	}
 </style>
 </html>
