@@ -29,7 +29,7 @@ Class Jadwal extends Database {
 	}
 
 	public function add($film_id,$jam_tayang){
-		$sql = "INSERT INTO ". $this->tablename . " (id, film_id, jam_tayang) VALUES ('" . $this->getUUID() . "','".$genre."')";
+		$sql = "INSERT INTO ". $this->tablename . " (id, film_id, jam_tayang) VALUES ('" . $this->getUUID() . "','".$film_id."','".$jam_tayang."')";
 		if ($this->runQuery($sql) === TRUE) {
 		    echo "New record created successfully";
 		} else {
