@@ -1,6 +1,6 @@
 <?php
-namespace Engima\Model;
-use Engima\Database;
+require_once __DIR__ .'/../Database.php';
+
 Class Jadwal extends Database {
 	private $dbname = "engima";
 	private $tablename = "jadwal";
@@ -28,7 +28,12 @@ Class Jadwal extends Database {
 		}
 	}
 
-	public function add(){
-		
+	public function add($film_id,$jam_tayang){
+		$sql = "INSERT INTO ". $this->tablename . " (id, film_id, jam_tayang) VALUES ('" . $this->getUUID() . "','".$genre."')";
+		if ($this->runQuery($sql) === TRUE) {
+		    echo "New record created successfully";
+		} else {
+		    echo "Error: " . $sql . "<br>" . $this->getConn()->error;
+		}
 	}
 }
