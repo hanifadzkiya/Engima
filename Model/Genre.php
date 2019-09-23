@@ -1,6 +1,6 @@
 <?php
-namespace Engima\Model;
-use Engima\Database;
+require_once __DIR__ .'/../Database.php';
+
 Class Genre extends Database {
 	private $dbname = "engima";
 	private $tablename = "genre";
@@ -26,7 +26,17 @@ Class Genre extends Database {
 		}
 	}
 
-	public function add(){
-		
+	public function add($genre){
+		$sql = "INSERT INTO ". $this->tablename . " (id, genre) VALUES ('" . $this->getUUID() . "','".$genre."')";
+		if ($this->runQuery($sql) === TRUE) {
+		    echo "New record created successfully";
+		} else {
+		    echo "Error: " . $sql . "<br>" . $this->getConn()->error;
+		}
+	}
+
+	public function getAll(){
+		$sql = "SELECT * FROM ".$this->tablename;
+		return $this->runQuery($sql);
 	}
 }
