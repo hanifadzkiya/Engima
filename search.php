@@ -5,19 +5,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<div id="header">
-		<div id="navbar">
-			<h1><span style="color: #12abce">Engi</span>ma</h1>
-			<form style="padding-left: 10px; padding: 2px; border-radius: 5px; border: 2px solid #f0f0f0; height: 25px;">
-				<input style="border: none; height: 100%;" type="text" placeholder="Search movie">
-				<button style="background: none; border: none;">
-					<img width="12px" height="12px" src="img/search-icon.svg">
-				</button>
-			</form>
-			Transaction
-			<div style="float: right">Logout</div>
-		</div>
-	</div>
+    <div class="nav">
+        <div class="nav_content">
+            <div class="engi"><b>Engi</b>ma</div>
+            <div class="search-container">
+                <form action="/action_page.php"><!--GANTI NANTI-->
+                    <input type="text" placeholder="Search Movie" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="link">
+                <a href="#">Logout</a>
+                <a href="#">Transactions</a>
+            </div>
+        </div>
+    </div>
 	<div id="content">
 		<h2>Showing search result for keyword "Captain"</h2>
 		<h4 style="color : #626262">54 result available</h4>
@@ -63,15 +65,10 @@
 	p {
 		font-size: 14px;
 	}
-	#header {
-		background-color: #ffffff;
-		display: flex;
-		width: 100%;
-	}
 	#content {
 		background-color: #ffffff;
-		padding: 50px;
-		width: 60%;
+		padding: 5%;
+		width: 67%;
 		height: 100%;
 		margin: auto;
 	}
@@ -100,13 +97,6 @@
 	#pagination .number.active {
 		border: 1px solid #00c1e7;
 	}
-
-	#navbar {
-		width: 60%;
-		margin: auto;
-		display: flex;
-		padding: 15px 50px;
-	}
 	.movie td {
 		border-bottom: 1px solid #d2d2d2;
 	}
@@ -133,10 +123,76 @@
 	.movie-detail h3 {
 		margin: 5px 0px;
 	}
+	/*NAVIGATION*/
+	.nav{
+	    overflow: hidden;
+	    position: fixed;
+	    top: 0;
+	    width: 100%;
+	    -webkit-box-shadow: 0px 5px 7px -2px rgba(33,33,33,0.15); 
+	    box-shadow: 0px 5px 7px -2px rgba(33,33,33,0.15);
+	    background-color: white;
+	    padding: 15px 0;
+	    z-index: 1;
+	}
+	.nav_content{
+	    width: 67%;
+	    margin: auto;
+	}
+	.engi {
+	    float: left;
+	    display: block;
+	    margin-right: 20px;
+	}
+	.engi b{
+	    color: #00C1EC;
+	}
+	.search-container{
+	    float: left;
+	    display: block;
+	    margin: 0 20px;
+	    border: 1px solid #c9c9c9;
+	    padding: 0 5px;
+	    border-radius: 5px;
+	    width: 22%;
+	    min-width:100px;
+	}
+	.search-container input{
+	    border: none;
+	    width: 80%;
+	    padding-left: 5px;
+	}
+	::placeholder{
+	    color: grey;
+	    font-size: 12px;
+	}
+	.search-container button{
+	    float: right;
+	    border: none;
+	    background-color: transparent;
+	    cursor: pointer;
+	    color: grey;
+	}
+	.link a {
+	    margin-left: 20px;
+	    font-size: 13px;
+	    text-decoration: none;
+	    color: #000000;
+	    font-weight: bold;
+	}
+	.link a:hover{
+	    color: #c9c9c9;
+	    -webkit-transition: all 0.5s ease-in-out;
+	    -moz-transition: all 0.5s ease-in-out;
+	    -ms-transition: all 0.5s ease-in-out;
+	    -o-transition: all 0.5s ease-in-out;
+	    transition: all 0.5s ease-in-out;
+	}
 	@media only screen and (max-width: 600px) {
 		#content {
-			padding: 10px;
+			padding: 100px 10px 100px 10px;
 			color: red;
+			width: 80%;
 		}
 		.movie td {
 		    display: block;
@@ -164,6 +220,16 @@
 			width: 100%;
 			text-align: center;
 		}
+		/* Navbar */
+		.search-container {
+		    width: 100%;
+		    padding: 0px;
+		    margin: 10px 0px;
+		}
+		.link {
+			text-align: center;
+		}
+
 	}
 	@media only screen and (min-width: 800px){
 		.movie-detail a {
@@ -173,6 +239,16 @@
 		}
 		body {
 			height:100%;
+		}
+		/* Navbar */
+		.engi {
+			float: left;
+		}
+		.search-container {
+			float: left;
+		}
+		.link a {
+		    float: right;
 		}
 	} 
 </style>
