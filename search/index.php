@@ -24,13 +24,6 @@
 	<div id="content">
 		<h2 id="keyword">Showing search result for keyword </h2>
 		<h4 id="found"></h4>
-		<div id="pagination">
-			<a class="inactive">Back</a>
-			<a class="inactive number">1</a>
-			<a class="active number">2</a>
-			<a class="active number">3</a>
-			<a class="active">Next</a>
-		</div>
 	</div>
 	<script type="text/javascript" src="search/app.js"></script>
 </body>

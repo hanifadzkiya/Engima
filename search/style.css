@@ -17,6 +17,9 @@ p {
 h4 {
 	color : #626262;
 }
+a {
+	text-decoration: none;
+}
 #content {
 	background-color: #ffffff;
 	padding: 5%;
@@ -66,8 +69,8 @@ h4 {
 	width: 25%; 
 	position: relative;
 }
-.movie-detail h3 {
-	margin: 5px 0px;
+.movie-detail a {
+	color: #1f1f1f;
 }
 .rating {
 	color: #7e7e7e;
