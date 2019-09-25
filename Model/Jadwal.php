@@ -50,7 +50,6 @@ Class Jadwal extends Database
     public function getById($id)
     {
         $sql = "SELECT * FROM ".$this->tablename." WHERE id = '".$id."'";
-        print($sql);
         return $this->runQuery($sql);
     }
 }
