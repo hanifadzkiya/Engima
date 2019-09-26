@@ -1,9 +1,10 @@
 var urlParams = new URLSearchParams(window.location.search);
-let keyword_header = document.getElementById("keyword");
 let resultContainer = document.getElementById("content");
-let keyword = urlParams.get('judul');
+let keyword = urlParams.get('keyword');
 let page = urlParams.get('page');
-keyword_header.innerHTML += '"'+keyword+'"';
+if(page == null){
+	page = 1;
+}
 
 var xhttp = new XMLHttpRequest();
 
@@ -83,12 +84,12 @@ function createActiveElementPagination(nomor){
 	page.classList.add("active");
 	if(typeof(nomor) == "number"){
 		page.classList.add("number");
-		page.setAttribute("href","search?judul="+keyword+"&page="+nomor);
+		page.setAttribute("href","search?keyword="+keyword+"&page="+nomor);
 	} else {
 		if(nomor == "back"){
-			page.setAttribute("href","search?judul="+keyword+"&page="+page-1);
+			page.setAttribute("href","search?keyword="+keyword+"&page="+page-1);
 		} else {
-			page.setAttribute("href","search?judul="+keyword+"&page="+page+1);
+			page.setAttribute("href","search?keyword="+keyword+"&page="+page+1);
 		}
 	}
 	page.innerText = nomor;
@@ -135,18 +136,42 @@ function addPagination(totalMovie,page){
 	resultContainer.appendChild(divPagination);
 }
 
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-       // Typical action to be performed when the document is ready:
-       movies = JSON.parse(xhttp.responseText);
-       totalMovie = movies["data"]["jumlah_film"];
-       document.getElementById("found").innerHTML = totalMovie + " result available";
-       totalMovieInThisPage = movies["data"]["film"].length;
-       for(let index = 0;index < totalMovieInThisPage;index++){
-       		displayElementMovie(movies["data"]["film"][index]);
-       }
-       addPagination(totalMovie,page);
-    }
-};
-xhttp.open("GET", "api/v1/film?judul="+keyword+"&page="+page, true);
-xhttp.send();
+function displayNumberOfTotalMovie(totalMovie){
+	let totalMovieElement = document.createElement("h4");
+	totalMovieElement.innerHTML = totalMovie + " result available";
+	resultContainer.appendChild(totalMovieElement);
+}
+
+function displayKeyword(keyword){
+	let keywordElement = document.createElement("h2");
+	if(keyword == null){
+		keywordElement.innerHTML = "Pencarian tidak dikenal, silahkan masukkan pencarian pada kolom search";
+	} else {
+		keywordElement.innerHTML = "Showing search result for keyword " + keyword;
+	}
+	keywordElement.setAttribute("id","keyword");
+	resultContainer.appendChild(keywordElement); 
+}
+
+if(keyword.length > 0){
+	console.log(keyword);
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	       // Typical action to be performed when the document is ready:
+	       movies = JSON.parse(xhttp.responseText);
+	       totalMovie = movies["data"]["jumlah_film"];
+	       displayKeyword(keyword);
+	       displayNumberOfTotalMovie(totalMovie);
+	       totalMovieInThisPage = movies["data"]["film"].length;
+	       for(let index = 0;index < totalMovieInThisPage;index++){
+	       		displayElementMovie(movies["data"]["film"][index]);
+	       }
+	       addPagination(totalMovie,page);
+	    }
+	};
+
+	xhttp.open("GET", "api/v1/film?keyword="+keyword+"&page="+page, true);
+	xhttp.send();
+} else {
+	displayKeyword(null);
+}
