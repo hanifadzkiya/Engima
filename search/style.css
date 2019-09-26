@@ -94,6 +94,10 @@ a {
 	width: 14px; 
 	height: 14px;
 }
+#search-icon {
+	width: 12px;
+	height: 12px;
+}
 /*NAVIGATION*/
 .nav{
     overflow: hidden;
