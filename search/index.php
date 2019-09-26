@@ -10,9 +10,9 @@
         <div class="nav_content">
             <div class="engi"><b>Engi</b>ma</div>
             <div class="search-container">
-                <form action="/action_page.php"><!--GANTI NANTI-->
-                    <input type="text" placeholder="Search Movie" name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                <form action="/search?"+search><!--GANTI NANTI-->
+                    <input type="text" placeholder="Search Movie" name="keyword">
+                    <button type="submit"><img id="search-icon" src="search/img/search-icon.svg"></button>
                 </form>
             </div>
             <div class="link">
@@ -22,8 +22,7 @@
         </div>
     </div>
 	<div id="content">
-		<h2 id="keyword">Showing search result for keyword </h2>
-		<h4 id="found"></h4>
+        
 	</div>
 	<script type="text/javascript" src="search/app.js"></script>
 </body>
