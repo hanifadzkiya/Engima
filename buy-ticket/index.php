@@ -21,12 +21,8 @@
         </div>
     </div>
 <div id="content">
-		<div id="film">
+		<div id="movie">
 			<img width="50px" height="50px" src="images/right-icon.png">
-			<div class="movie-summary">
-				<h2 id="movie-title">Avengers: Endgame</h2>
-				<p><b>September 4, 2019 - 09.40 pm</b></p>
-			</div>
 		</div>
 		<div class="row">
 		  <div class="column seat">
@@ -78,6 +74,7 @@
 		  </div>
 		</div>
 	</div>
+	<script type="text/javascript" src="buy-ticket/app.js"></script>
 </body>
 <style type="text/css">
 	@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
@@ -100,7 +97,7 @@
 		margin: auto;
 		padding: 100px 5%;
 	}
-	#film {
+	#movie {
 		border-bottom: 1px solid #a7a7a7;
 		margin-bottom: 20px;
 	}
