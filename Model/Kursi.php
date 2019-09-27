@@ -58,4 +58,9 @@ Class Kursi extends Database
         $sql = "SELECT * FROM ".$this->tablename;
         return $this->runQuery($sql);
     }
+
+    public function getByJadwalId($jadwal_id){
+        $sql = "SELECT * FROM ".$this->tablename." WHERE jadwal_id = '".$jadwal_id."' ORDER BY nomor";
+        return $this->runQuery($sql);      
+    }
 }
