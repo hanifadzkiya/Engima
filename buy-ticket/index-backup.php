@@ -78,7 +78,7 @@
 		  </div>
 		</div>
 	</div>
-	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="buy-ticket/app.js"></script>
 </body>
 <style type="text/css">
 	@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
