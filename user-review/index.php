@@ -3,7 +3,7 @@
 <head>
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="user-review/style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="nav">
@@ -23,7 +23,7 @@
     </div>
 	<div id="content">
 		<h2 id="movie-name">
-			<img src="buy-ticket/img/chevron-left.svg">
+			<img src="img/chevron-left.svg">
 			The Avengers
 		</h2>
 		<div id="user-review-container">
@@ -52,11 +52,12 @@
 				</div>
 				<div class="form">
 					<textarea id="review" type="text"></textarea>
-					<button id="submit">Submit</button>
+					<button id="submit" onclick="submit()">Submit</button>
 					<button id="cancel">Cancel</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="app.js"></script>
 </body>
 </html>
