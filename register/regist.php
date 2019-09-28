@@ -39,8 +39,14 @@
     }
 
     if($name == "phone"){
-        if(!(strlen($val)>=9 && strlen($val)<=12)){
-            $error = "Phone number is invalid! Put only 9 to 12 digits.";
+        if(!(preg_match('/^[0-9]{9,12}$/', $val))){
+            $error = "Phone number is invalid! Put only 9 to 12 digits number.";
+        }
+        $sql = "SELECT * FROM user WHERE phone_number= '".$val."'";
+        $result = mysqli_query($db,$sql);
+
+        if(mysqli_affected_rows($db)>=1){
+            $error = "Phone num is already used! Please use another phone num.";
         }
     }
 

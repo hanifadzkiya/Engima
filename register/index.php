@@ -13,8 +13,10 @@
                     xmlhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
                             document.getElementById(name+"_error").innerHTML = this.responseText;
+                            //document.getElementById(regist).disabled = disabled;
                             if (this.responseText == ""){
                                 document.getElementById(name).style.border = '1px solid #b8ffa0'
+                                //document.getElementById(regist).disabled = false;
                             } else {
                                 document.getElementById(name).style.border = '1px solid #c9c9c9'
                             }
@@ -33,7 +35,21 @@
     <body>
     <?php
         error_reporting(0);
-        require_once __DIR__ .'/Model/User.php';
+        require_once '../Model/User.php';
+        
+
+
+        //initialize var
+        $db_user = "root";
+        $db_pass = "sam";
+        $db_name = "engima";
+        $db_host = "localhost";
+
+        //connect to the database
+        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+        if(!$db){
+            die('Could not connect: ' . mysqli_error($db));
+        }
 
         //register user
         if(isset($_POST['regist'])) {
@@ -53,6 +69,7 @@
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             
             $newtarget_file = $target_dir . $username . "." . $imageFileType;
+            $newFileName = $username . "." . $imageFileType;
 
             //only allow certain file formats
             if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
@@ -67,6 +84,37 @@
                 //array_push($errors, "The two passwords do not match");
             }
 
+            //check username
+            $sql = "SELECT * FROM user WHERE name= '".$username."'";
+            $result = mysqli_query($db,$sql);
+
+            if(mysqli_affected_rows($db)>=1){
+                $errorusername = "Username " . $username . " is exist! Please use another username.";
+                $upOK = 0;
+            } else if(!(preg_match('/^[a-zA-Z0-9_.]+$/',$username))){
+                $errorusername = "Please use alphabet, number and underscore only";
+                $upOK = 0;
+            }
+            //check email
+            $sql = "SELECT * FROM user WHERE email= '".$email."'";
+            $result = mysqli_query($db,$sql);
+
+            if(mysqli_affected_rows($db)>=1){
+                $erroremail = "Email is already used! Please use another email.";
+                $upOK = 0;
+            }
+            //check phone num
+            if(!(preg_match('/^[0-9]{9,12}$/', $phone))){
+                $errorphone = "Phone number is invalid! Put only 9 to 12 digits number.";
+                $upOK = 0;
+            }
+            $sql = "SELECT * FROM user WHERE phone_number= '".$phone."'";
+            $result = mysqli_query($db,$sql);
+    
+            if(mysqli_affected_rows($db)>=1){
+                $errorphone = "Phone num is already used! Please use another phone num.";
+            }
+
             // Check if $uploadOk is set to 0 by an error
             if ($upOK == 0) {
             // if everything is ok, try to upload file
@@ -75,13 +123,10 @@
                 } else {
                     $errorpic =  "Sorry, there was an error uploading your file.";
                 }
-                $user = new User();
                 //update database
-                $user->add($username, $email, $phone, $pass_1, $picture);
-                $loginCreds = array(
-                    'username' => $username,
-                    'password' => $pass_1,
-                );
+                $user = new User();
+                $user->add($username, $email, $phone, $pass_1, $newFileName);
+            
                 setcookie('username', $username, time() + 3600, "/");
                 setcookie('password', $pass_1, time() + 3600, "/");
                 header("Location: ../home/index.php");
@@ -95,21 +140,21 @@
                 <div class="inputform">
                     <label>Username</label>
                     <input id="username" type="text" placeholder="joe.johndoe" name="username" class="intext" onchange="errorMsg(this.value,this.name)" required>
-                    <p id="username_error" class="error_msg"> </p>
+                    <p id="username_error" class="error_msg"><?php echo $errorusername ?></p>
                 </div>
                 <br>
 
                 <div class="inputform">
                     <label>Email Address</label>
                     <input id="email" type="email" placeholder="joe@email.com" name="email" class="intext" onchange="errorMsg(this.value,this.name)" required>
-                    <p id="email_error" class="error_msg"> </p>
+                    <p id="email_error" class="error_msg"><?php echo $erroremail ?></p>
                 </div>
                 <br>
 
                 <div class="inputform">
                     <label>Phone Number</label>
                     <input id="phone" type="tel" placeholder="+62813xxxxxxxx" name="phone" class="intext" onchange="errorMsg(this.value,this.name)" required>
-                    <p id="phone_error" class="error_msg"> </p>
+                    <p id="phone_error" class="error_msg"><?php echo $errorphone ?></p>
                 </div>
                 <br>
                 
