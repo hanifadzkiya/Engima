@@ -10,16 +10,16 @@
     if(!$db){
         die('Could not connect: ' . mysqli_error($db));
     }
+    date_default_timezone_set("Asia/Jakarta");
+    $today = date("Y-m-d h:m:s");
+    $today2 = date("Y-m-d")."%";
 
-    $today = date("Y-m-d")."%";
-    $date = date_create(date("Y-m-d"));
+    //$yesterday = date_sub($date,date_interval_create_from_date_string("1 days"));
+    //$date2 = $yesterday->format('Y-m-d') . "%";
+    //$yesterday2 = date_sub($date,date_interval_create_from_date_string("2 days"));
+    //$date3 = $yesterday2->format('Y-m-d') . "%";
 
-    $yesterday = date_sub($date,date_interval_create_from_date_string("1 days"));
-    $date2 = $yesterday->format('Y-m-d') . "%";
-    $yesterday2 = date_sub($date,date_interval_create_from_date_string("2 days"));
-    $date3 = $yesterday2->format('Y-m-d') . "%";
-
-    $sql = "SELECT * FROM film WHERE tanggal_rilis LIKE '$today' OR tanggal_rilis LIKE '$date2' OR tanggal_rilis LIKE '$date3' ";
+    $sql = "SELECT * FROM film WHERE tanggal_rilis >= '$today' AND tanggal_rilis LIKE '$today2'";
     $resultFilm = mysqli_query($db,$sql);
     $arrFilm = Array();
     $response = Array();
