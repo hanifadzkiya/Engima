@@ -249,7 +249,27 @@ td {
 	.link {
 		text-align: center;
 	}
+	/*Responsive Schedule and Review*/
+	.schedules-movie {
+		width: 100%;
+	}
 
+	.reviews-movie {
+		width: 100%;
+	}
+	.schedules-reviews {
+		display: block;
+	}
+	/*Responsive Movie Description*/
+	#movie-container {
+		display: block;
+	}
+	.movie-image {
+		width: 100%;
+	}
+	.movie-description {
+		width: 100%;
+	}
 }
 @media only screen and (min-width: 800px){
 	.movie-detail a {
