@@ -52,4 +52,10 @@ Class Jadwal extends Database
         $sql = "SELECT * FROM ".$this->tablename." WHERE id = '".$id."'";
         return $this->runQuery($sql);
     }
+
+    public function getByFilmId($film_id)
+    {
+        $sql = "SELECT * FROM ".$this->tablename." WHERE film_id = '".$id."'";
+        return $this->runQuery($film_id);
+    }
 }
