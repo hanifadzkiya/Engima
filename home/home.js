@@ -36,6 +36,6 @@ xmlhttp.onreadystatechange = function() {
     }
 };
 
-xmlhttp.open("GET","home.php",true);
+xmlhttp.open("GET","../api/v1/home/home.php",true);
 xmlhttp.send();
 
