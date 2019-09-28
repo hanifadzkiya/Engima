@@ -55,7 +55,7 @@ Class Jadwal extends Database
 
     public function getByFilmId($film_id)
     {
-        $sql = "SELECT * FROM ".$this->tablename." WHERE film_id = '".$id."'";
-        return $this->runQuery($film_id);
+        $sql = "SELECT * FROM ".$this->tablename." WHERE film_id = '".$film_id."'";
+        return $this->runQuery($sql);
     }
 }
