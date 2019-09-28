@@ -40,6 +40,12 @@ Class Review extends Database
         return ($this->runQuery($sql) === true);
     }
 
+    public function update($user_id,$film_id,$review,$rating)
+    {
+        $sql = "UPDATE ". $this->tablename . " SET review = '".$review."', rating = '".$rating."' WHERE user_id = '".$user_id."' AND film_id = '".$film_id."'";
+        return ($this->runQuery($sql) === true);
+    }
+
     public function getByFilmId($film_id)
     {
         $sql = "SELECT * FROM ". $this->tablename . " WHERE film_id='" . $film_id . "'";
