@@ -96,7 +96,7 @@
                         </div>
                         <div class="review-detail">
                             <p>Jokowi</p>
-                            <img class="star-icon" width="10px" height="10px" src="img/star-icon.svg">
+                            <img class="star-icon-2" width="10px" height="10px" src="img/star-icon.svg">
                             <p>8/10</p>
                             <p>Sangat menyenangkan menjadi presiden sembari menonton film. Seru.</p>
                         </div>

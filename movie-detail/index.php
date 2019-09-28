@@ -22,6 +22,8 @@
         </div>
     </div>
     <div id="content">
+        <div id="movie-container">
+        </div>
         <div class="schedules-reviews">
             <div class="schedules-movie">
                 <div class="schedules">
@@ -39,41 +41,8 @@
                 </div>
             </div>
             <div class="reviews-movie">
-                <div>
+                <div id="reviews">
                     <h3>Reviews</h3>
-                    <div class="review">
-                        <div class="profil-image">
-                            <img src="img/jokowi.jpeg">
-                        </div>
-                        <div class="review-detail">
-                            <p>Jokowi</p>
-                            <img class="star-icon" width="10px" height="10px" src="img/star-icon.svg">
-                            <p>8/10</p>
-                            <p>Sangat menyenangkan menjadi presiden sembari menonton film. Seru.</p>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="profil-image">
-                            <img src="img/jokowi.jpeg">
-                        </div>
-                        <div class="review-detail">
-                            <p>Jokowi</p>
-                            <img class="star-icon" width="10px" height="10px" src="img/star-icon.svg">
-                            <p>8/10</p>
-                            <p>Sangat menyenangkan menjadi presiden sembari menonton film. Seru.</p>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="profil-image">
-                            <img src="img/jokowi.jpeg">
-                        </div>
-                        <div class="review-detail">
-                            <p>Jokowi</p>
-                            <img class="star-icon" width="10px" height="10px" src="img/star-icon.svg">
-                            <p>8/10</p>
-                            <p>Sangat menyenangkan menjadi presiden sembari menonton film. Seru.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
