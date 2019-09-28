@@ -1,0 +1,9 @@
+insert into film (id, judul, poster, rating, tanggal_rilis, durasi_tayang, sinopsis) values ("3d2a830d-4469-4280-be79-e2d5b9f6ceef", "Avatar: The Legend of Aang", "aang.jpg", "8.75", "2019-09-28", "75", "Petualangan avatar aang ketika negara api menyerang.");
+
+insert into film (id, judul, poster, rating, tanggal_rilis, durasi_tayang, sinopsis) values ("3d2a830d-4469-4280-be79-e2d5b9f6ceeg", "Captain Marvel", "aang.jpg", "8.25", "2019-09-28", "120", "Petualangan captain marvel ketika negara api menyerang.");
+
+insert into film (id, judul, poster, rating, tanggal_rilis, durasi_tayang, sinopsis) values ("3d2a830d-4469-4280-be79-e2d5b9f6ceea", "Avenger: Endgame", "aang.jpg", "10", "2019-09-28", "180", "Seluruh avenger melawan thanos yang ingin memusnahkan 50% kehidupan.");
+
+insert into film (id, judul, poster, rating, tanggal_rilis, durasi_tayang, sinopsis) values ("3d2a830d-4469-4280-be79-e2d5b9f6cee4", "Doraemon", "aang.jpg", "8.3", "2019-09-28", "135", "Doraemon bersama Nobita menghadapi Giant.");
+
+insert into film (id, judul, poster, rating, tanggal_rilis, durasi_tayang, sinopsis) values ("3d2a830d-4469-4280-be79-e2d5b9f6cee7", "Crayon Sinchan", "aang.jpg", "7", "2019-09-28", "75", "Petualangan crayon sinchan si anak TK.");
