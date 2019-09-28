@@ -56,20 +56,28 @@ function displayMovieDetail(movie){
 	displayMovieDescription(movie);
 }
 
+function displayJadwal(jadwal,movie){
+	let tableBody = document.getElementById("table-body");
+	for(let index = 0;index < jadwal.length;index++){
+		let tr = document.createElement("tr");
+		let date = document.createElement("td");
+		date.innerText = jadwal[index]["jam_tayang"];
+		tr.appendChild(date);
+		let jam = document.createElement("td");
+		jam.innerText = jadwal[index]["jam_tayang"];
+		tr.appendChild(jam);
+	}
+}
+
 function getSchedule(movie){
 	let xhttpGenre = XMLHttpRequest();
 	xhttpGenre.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	       let response = JSON.parse(xhttp.responseText);
-	       if(response["message"] == "Film not found"){
-	       		displayNotFoundMessage();
-	       } else {
-	       		displayMovieDetail(response["data"]);
-	       		getSchedule(movie);
-	       }
+	       let responseJadwal = JSON.parse(xhttp.responseText);
+	       displayJadwal(responseJadwal["data"],movie);
 	    }
 	};
-	xhttpGenre.open("GET", "../api/v1/film/detail?id="+filmId, true);
+	xhttpGenre.open("GET", "../api/v1/jadwal/film?id="+filmId, true);
 	xhttpGenre.send();
 }
 
