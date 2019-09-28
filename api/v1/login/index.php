@@ -1,29 +1,48 @@
 <?php 
+/*
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "engima";
+*/
+function verify($password_input,$password_hash){
+    return (crypt($password_input, $password_hash) == $password_hash);
+}
 
-require_once __DIR__ .'/../../../Model/User.php';
+function checkPassword($email,$password) 
+{ 
+    //global $servername, $username, $password, $dbname;
+    $conn = new mysqli("localhost", "root", "", "engima");
+    $sql = "SELECT * FROM user where email='".$email."'";
+    $result = $conn->query($sql);
+    if (mysqli_num_rows($result) == 1) {
+        while($row = $result->fetch_assoc()) {
+            $hash_password = $row["password"];
+        }
+        return verify($password,$hash_password);
+    } else {
+        return false;
+    }
+}
+
 
 if (isset($_POST['email'])) {
     $email=$_POST['email'];
     $password=$_POST['password'];
 
-    $user = new User();
-    $user->print();
-    if ($user->checkPassword("samantha11@gmail.com","samantha11")) {
-        print ("ada");
-    } else {
-        print("tdk ada");
-    }
+    if (($email != "") && ($password != "")) {
 
-    /*if (($email != "") && ($password != "")) {
-        $user = new User();
-
-        if ($user->checkPassword($email,$password)) {
-            print ("ada");
+        if (checkPassword($email,$password)) {
+            setcookie('user', $email, 0, '/');
+            header("Location:Home.php");
+            die();
         } else {
-            print ("tdk ada");
+            echo "<div class='alert' style='text-align:center;background-color:red;color:white;padding:10pt;'> You Have Entered Incorrect Username or Password </div>";
+            unset($_POST['email']);
+            unset($_POST['password']);
         }
 
-    }*/
+    }
 }
 
 ?>
