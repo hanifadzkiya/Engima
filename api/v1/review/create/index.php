@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			http_response_code(200);
 		} else {
 			if($reviewTable->add($user_id,$film_id,$review,$rating)){
-				$response["message"] = "Create rating successfull";
+				$response["message"] = "Create review successfull";
 				$response["status"] = 200;
 				http_response_code(200);
 			} else {
