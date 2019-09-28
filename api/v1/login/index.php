@@ -1,17 +1,11 @@
 <?php 
-/*
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "engima";
-*/
+
 function verify($password_input,$password_hash){
     return (crypt($password_input, $password_hash) == $password_hash);
 }
 
 function checkPassword($email,$password) 
 { 
-    //global $servername, $username, $password, $dbname;
     $conn = new mysqli("localhost", "root", "", "engima");
     $sql = "SELECT * FROM user where email='".$email."'";
     $result = $conn->query($sql);
@@ -25,7 +19,6 @@ function checkPassword($email,$password)
     }
 }
 
-
 if (isset($_POST['email'])) {
     $email=$_POST['email'];
     $password=$_POST['password'];
@@ -33,8 +26,13 @@ if (isset($_POST['email'])) {
     if (($email != "") && ($password != "")) {
 
         if (checkPassword($email,$password)) {
-            setcookie('user', $email, 0, '/');
-            header("Location:Home.php");
+            $conn = new mysqli("localhost", "root", "", "engima");
+            $result = $conn->query("SELECT * FROM user where email='".$email."'");
+            $row = $result->fetch_assoc();
+            $username = $row["name"];
+
+            setcookie('user', $username, 0, '/');
+            header("Location:Home.php"); //GANTI NANTI
             die();
         } else {
             echo "<div class='alert' style='text-align:center;background-color:red;color:white;padding:10pt;'> You Have Entered Incorrect Username or Password </div>";
