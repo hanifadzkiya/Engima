@@ -8,6 +8,12 @@ function isUserWatch($user_id,$film_id){
 	return mysqli_num_rows($result_check) > 0;
 }
 
+function isUserHaveReview($user_id,$film_id){
+	global $reviewTable;
+	$result_check = $reviewTable->getByFilmAndUser($user_id,$film_id);
+	return mysqli_num_rows($result_check) > 0;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$user_id = $_POST["user_id"];
 	$film_id = $_POST["film_id"];
@@ -17,14 +23,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$reviewTable = new Review();
 
 	if(isUserWatch($user_id,$film_id)){
-		if($reviewTable->add($user_id,$film_id,$review,$rating)){
-			$response["message"] = "Create rating successfull";
+		if(isUserHaveReview($user_id,$film_id)){
+			$response["message"] = "User already have review";
 			$response["status"] = 200;
 			http_response_code(200);
 		} else {
-			$response["message"] = "Internal Server Error";
-			$response["status"] = 500;
-			http_response_code(200);
+			if($reviewTable->add($user_id,$film_id,$review,$rating)){
+				$response["message"] = "Create rating successfull";
+				$response["status"] = 200;
+				http_response_code(200);
+			} else {
+				$response["message"] = "Internal Server Error";
+				$response["status"] = 500;
+				http_response_code(200);
+			}
 		}
 	} else {
 		$response["message"] = "Forbidden";
