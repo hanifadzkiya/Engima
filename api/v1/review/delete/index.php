@@ -5,30 +5,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
 
 	parse_str(file_get_contents('php://input'));
 
- //    $reviewTable = new Review();
+    $reviewTable = new Review();
 
-	// if(isUserWatch($user_id,$film_id)){
-	// 	if(isUserHaveReview($user_id,$film_id)){
-	// 		if($reviewTable->update($user_id,$film_id,$review,$rating)){
-	// 			$response["message"] = "Update review successfull";
-	// 			$response["status"] = 200;
-	// 			http_response_code(200);
-	// 		} else {
-	// 			$response["message"] = "Internal Server Error";
-	// 			$response["status"] = 500;
-	// 			http_response_code(200);
-	// 		}
-	// 	} else {
-	// 		$response["message"] = "User have'nt review";
-	// 		$response["status"] = 200;
-	// 		http_response_code(200);
-	// 	}
-	// } else {
-	// 	$response["message"] = "Forbidden";
-	// 	$response["status"] = 403;
-	// 	http_response_code(403);
-	// }
-	// http_response_code(200); //Set HTTP Response Code
+    $response = Array();
+    if($reviewTable->delete($id)){
+    	$response["message"] = "Delete successfull";
+    	$response["status"] = 200;
+    	http_response_code(200);
+    } else {
+    	$response["message"] = "Not found";
+    	$response["status"] = 200;
+    	http_response_code(200);
+    }
 } else {
     $response["message"] = "Method not Allowed";
     $response["status"] = 405;

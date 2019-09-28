@@ -3,15 +3,13 @@ require_once __DIR__.'/../../../../Model/Review.php';
 
 function isUserWatch($user_id,$film_id){
 	global $reviewTable;
-	$sql = "SELECT temp_table.user_id as user_id, temp_table.jadwal_id as jadwal_id, jadwal.film_id as film_id from jadwal JOIN ( SELECT user.id AS user_id,kursi.jadwal_id AS jadwal_id FROM `user` JOIN `kursi` ON user.id = kursi.user_id ) AS temp_table ON jadwal.id = jadwal_id WHERE user_id = '00998708-2fe6-45b6-a3a9-788b2efac19d' AND film_id = '9eceeb9a-678c-403f-9e45-cde656b47cef'";
-	print($sql);
+	$sql = "SELECT temp_table.user_id as user_id, temp_table.jadwal_id as jadwal_id, jadwal.film_id as film_id from jadwal JOIN ( SELECT user.id AS user_id,kursi.jadwal_id AS jadwal_id FROM `user` JOIN `kursi` ON user.id = kursi.user_id ) AS temp_table ON jadwal.id = jadwal_id WHERE user_id = '".$user_id."'";
 	$result_check = $reviewTable->runQuery($sql);
 	return mysqli_num_rows($result_check) > 0;
 }
 
 function isUserHaveReview($user_id,$film_id){
 	global $reviewTable;
-	print($user_id);
 	$result_check = $reviewTable->getByFilmAndUser($user_id,$film_id);
 	return mysqli_num_rows($result_check) > 0;
 }
