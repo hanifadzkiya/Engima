@@ -47,6 +47,8 @@ h4 {
 .star-icon {
 	float: left; 
 	margin-right: 5px;
+	width: 15px;
+	height: 15px;
 }
 .cover-movie {
 	border-radius: 5px;
