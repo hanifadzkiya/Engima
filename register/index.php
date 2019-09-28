@@ -63,7 +63,7 @@
             $errorpass = "";
             $errorpic = "";
 
-            $target_dir = "images/";
+            $target_dir = "../images/";
             $target_file = $target_dir . basename($_FILES['pic']['name']);
             $upOK = 1;
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -174,9 +174,16 @@
 
                 <div class="inputform">
                     <label>Profile Picture</label>
-                    <input type="file" name="pic" id="pic" required>
+                    <input type="file" name="pic" id="pic" class="hide" required onchange="readFile(this)">
+                    <input name="fileToUpload" id="fileToUpload" placeholder=" " readonly class="intext">
+                    <button type="button" name="upload" id="upload" onclick="document.getElementById('pic').click()">Browse</button>
                     <p id="pic_error" class="error_msg"><?php echo $errorpic ?></p>
                 </div>
+                <script>
+                    function readFile(name) {
+                        document.getElementById("fileToUpload").value = document.getElementById("pic").files[0].name;
+                    }
+                </script>
                 
                 <br>
                 <input type="submit" name="regist" value="Register" id="regist">
