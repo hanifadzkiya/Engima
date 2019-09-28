@@ -58,4 +58,9 @@ Class Kursi extends Database
         $sql = "SELECT * FROM ".$this->tablename;
         return $this->runQuery($sql);
     }
+
+    public function buy($jadwal_id,$nomor,$user_id){
+        $sql = "UPDATE ".$this->tablename()." SET user_id = '".$user_id."' WHERE jadwal_id = '".$jadwal_id."' AND nomor = '".$nomor."'";
+        return $this->runQuery($sql);
+    }
 }
