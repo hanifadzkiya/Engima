@@ -10,12 +10,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	$result_kursi = $kursi->getByJadwalId($jadwal_id);
 	$arr_kursi = Array();
 
+	$terisi = 0;
 	while($kursi = $result_kursi->fetch_assoc()){
 		$arr_kursi[] = $kursi;
+		if($kursi["user_id"] != null){
+			$terisi++;
+		}
 	}
 	
 	$response["message"] = "Success get kursi";
-	$response["data"] = $arr_kursi;
+	$response["data"]["terisi"] = $terisi;
+	$response["data"]["kursi"] = $arr_kursi;
 	$response["status"] = "200";
 	http_response_code(200);
 } else {

@@ -84,7 +84,7 @@ function displayEachJadwal(jadwal,movie){
 			tableBody.appendChild(tr);
 	    }
 	};
-	xhttpKursi.open("GET", "temp.php?jadwal_id="+jadwal["id"], true);
+	xhttpKursi.open("GET", "../api/v1/kursi?jadwal_id="+jadwal["id"], true);
 	xhttpKursi.send();	
 }
 
