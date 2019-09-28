@@ -11,19 +11,19 @@ $arr_user = Array();
 
 $result_user = $user->getAll();
 while($row = $result_user->fetch_assoc()){
-    $arr_user[] = $row["id"];
+	$arr_user[] = $row["id"];
 }
 
 $result_jadwal = $jadwal->getAll();
 while($row = $result_jadwal->fetch_assoc()) {
-    $jadwal_id = $row["id"];
-    for($nomor = 1;$nomor <= 30;$nomor++){
-        $is_sold = rand(1, 2);
-        if($is_sold == 1) {
-            $user_id = $arr_user[array_rand($arr_user)];
-            $kursi->add($jadwal_id, $nomor, $user_id);
-        } else {
-            $kursi->addWithoutUser($jadwal_id, $nomor);
-        }
-    }
+	$jadwal_id = $row["id"];
+	for($nomor = 1;$nomor <= 30;$nomor++){
+		$is_sold = rand(1,2);
+		if($is_sold == 1){
+			$user_id = $arr_user[array_rand($arr_user)];
+			$kursi->add($jadwal_id,$nomor,$user_id);
+		} else {
+			$kursi->addWithoutUser($jadwal_id,$nomor);
+		}
+	}
 }
