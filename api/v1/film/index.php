@@ -29,12 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     	$response["data"] = $data;
 	    $response["status"] = 200;
 	}
-	http_response_code(200); //Set HTTP Response Code
+	$response["message"] = "Success get film by title";
+	$response["data"] = $arr_film;
+	$response["status"] = 200;
 } else {
-    $response["message"] = "Method not Allowed";
-    $response["status"] = 405;
-    http_response_code(405);
+	$response["message"] = "Film not found";
+	$response["status"] = 200;
 }
+http_response_code(200); //Set HTTP Response Code
 header('Content-Type: application/json'); 
-echo(json_encode($response));
-?>
+print(json_encode($response));
