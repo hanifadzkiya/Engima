@@ -11,6 +11,7 @@ function isValid($access_token){
         if($expire > date('Y-m-d H:i:s', time())){
             return true;
         } else {
+            unset($_COOKIE["access_token"]);
             $sql = "DELETE FROM access_token WHERE access_token = '".$access_token."'";
             $conn->query($sql);
             return false;
@@ -32,11 +33,30 @@ function cekCookieLogin(){
 function cekCookieOther(){
     if(isset($_COOKIE["access_token"])){
         if(!isValid($_COOKIE["access_token"])){
-            print("masuk sini");
             header("Location:../login");
             die();
         } else {
-            print("masuk sini yaa");
+
+        }
+    } else {
+        header("Location:../login");
+        die();
+    }
+}
+
+function logout(){
+    global $configs;
+    if(isset($_COOKIE["access_token"])){
+        if(isValid($_COOKIE["access_token"])){
+            $conn = new mysqli($configs["servername"], $configs["username"], $configs["password"], "engima");
+            $sql = "DELETE FROM access_token WHERE access_token = '".$_COOKIE["access_token"]."'";
+            $conn->query($sql);
+            unset($_COOKIE["access_token"]);
+            header("Location:../login");
+            die();
+        } else {
+            header("Location:../login");
+            die();
         }
     } else {
         header("Location:../login");
