@@ -1,0 +1,31 @@
+.title {
+    margin: 100px 100px;
+    font-size: 20pt;
+}
+
+#back {
+    width: 20px;
+    height: 30px;
+    margin-right: 40px;
+}
+
+.box {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    padding: 10px 20px 30px 10px;
+}
+
+#left {
+    flex: 30%;
+    margin: 10px 20px;
+    font-size: 10pt;
+    background: brown
+}
+
+#right {
+    flex: 70%;
+    margin: 10px 20px;
+    font-size: 7pt;
+    background: aqua
+}

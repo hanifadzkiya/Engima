@@ -31,12 +31,32 @@ Class Review extends Database {
 		}
 	}
 
-	public function add($user_id,$film_id,$review,$rating){
-		$sql = "INSERT INTO ". $this->tablename . " (id, user_id, film_id, review, rating) VALUES ('" . $this->getUUID() . "','".$user_id. "','".$film_id. "','".$review. "','".$rating."')";
-		if ($this->runQuery($sql) === TRUE) {
-		    echo "New record created successfully";
-		} else {
-		    echo "Error: " . $sql . "<br>" . $this->getConn()->error;
-		}
-	}
+ public function add($user_id,$film_id,$review,$rating)
+    {
+        $sql = "INSERT INTO ". $this->tablename . " (id, user_id, film_id, review, rating) VALUES ('" . $this->getUUID() . "','".$user_id. "','".$film_id. "','".$review. "','".$rating."')";
+        return ($this->runQuery($sql) === true);
+    }
+
+    public function update($user_id,$film_id,$review,$rating)
+    {
+        $sql = "UPDATE ". $this->tablename . " SET review = '".$review."', rating = '".$rating."' WHERE user_id = '".$user_id."' AND film_id = '".$film_id."'";
+        return ($this->runQuery($sql) === true);
+    }
+
+    public function getByFilmId($film_id)
+    {
+        $sql = "SELECT * FROM ". $this->tablename . " WHERE film_id='" . $film_id . "'";
+        return $this->runQuery($sql);
+    }
+
+    public function getByFilmAndUser($user_id,$film_id){
+        $sql = "SELECT * FROM ". $this->tablename . " WHERE film_id='" . $film_id . "' AND user_id='".$user_id."'";
+        return $this->runQuery($sql); 
+    }
+
+    public function delete($id){
+        $sql = "DELETE FROM ".$this->tablename." WHERE id='".$id."'";
+        return ($this->runQuery($sql) === true);
+    }
+
 }

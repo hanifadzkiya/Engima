@@ -44,4 +44,16 @@ Class Film extends Database {
 		$sql = "SELECT * FROM ".$this->tablename;
 		return $this->runQuery($sql);
 	}
+
+    public function getByJudul($judul_film,$start_index,$total_index)
+    {
+        $sql = "SELECT * FROM ".$this->tablename." WHERE judul LIKE '%".$judul_film."%' LIMIT ".$start_index.", ".$total_index;
+        return $this->runQuery($sql);
+    }
+
+    public function getById($id_film,$start_index,$finish_index)
+    {
+        $sql = "SELECT * FROM ".$this->tablename." WHERE id ='".$id_film."'";
+        return $this->runQuery($sql);
+    }
 }

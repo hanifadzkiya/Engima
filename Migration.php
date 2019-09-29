@@ -7,6 +7,7 @@
 	require_once __DIR__ .'/Model/Kursi.php';
 	require_once __DIR__ .'/Model/Genre.php';
 	require_once __DIR__ .'/Model/FilmGenre.php';
+	require_once __DIR__ .'/Model/AccessToken.php';
 	
 	print("--create database engima--\n");
 	$engima = new Engima();
@@ -33,4 +34,7 @@
 	print("--create table film_genre--\n");
 	$film_genre = new FilmGenre();
 	$film_genre->createTable();
+	print("--create table access_token__\n");
+	$access_token = new AccessToken();
+	$access_token->createTable();
 ?>

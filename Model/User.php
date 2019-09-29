@@ -52,4 +52,18 @@ Class User extends Database {
 		$sql = "SELECT * FROM ".$this->tablename;
 		return $this->runQuery($sql);
 	}
+
+	public function checkPassword($email,$password) 
+    {
+        $sql = "SELECT * FROM user where email='".$email."'";
+        $result = $this->runQuery($sql);
+        if (mysqli_num_rows($result) == 1) {
+            while($row = $result->fetch_assoc()) {
+                $hash_password = $row["password"];
+            }
+            return verify($password,$hash_password);
+        } else {
+            return false;
+        }
+    }
 }

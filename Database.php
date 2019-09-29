@@ -1,5 +1,4 @@
 <?php
-use Mysqli;
 class Database {
 	private $servername;
 	private $username;
@@ -14,12 +13,10 @@ class Database {
     }
 
     public function connectWithDbname($dbname){
-    	print("connected to " . $dbname . "\n");
 		$this->conn = new mysqli($this->servername, $this->username, $this->password, $dbname);
 	}
 
 	public function connectWithoutDbname(){
-		print("connected\n");
 		$this->conn = new mysqli($this->servername, $this->username, $this->password);
 	}
 
