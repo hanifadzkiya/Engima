@@ -1,3 +1,8 @@
+<?php
+require_once("../Cookie.php");
+
+cekCookieOther();
+?>
 <!DOCTYPE html>
 <html>
 <head>

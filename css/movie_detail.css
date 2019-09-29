@@ -1,0 +1,63 @@
+body {
+    background-color: black;
+}
+
+.container {
+    margin-top: 0;
+    margin-left: 100px;
+    margin-right : 100px;
+    padding: 25px;
+    background: white;
+    font-family: 'Trebuchet MS';
+}
+
+.box {
+    margin: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+#img {
+    width: 200px;
+    height: 300px;
+    margin: 0 20px;
+    border-radius: 6px;
+}
+
+#movie-name {
+    font-size: 20pt;
+}
+
+#movie-genre {
+    font-size: 10pt;
+    color: blue;
+    margin-bottom: 0;
+}
+
+#movie-rating {
+    font-size: 10pt;
+    color: grey;
+    margin-bottom: 0 auto;
+    display: inline-block;
+}
+
+#star {
+    width: 10pt;
+    height: 10pt;
+}
+
+.schedules {
+    flex: 60%;
+    margin: 0 10px;
+    padding: 10px 20px 30px 10px;
+    box-shadow:5px 5px 10px grey;
+    border-radius: 10px;
+}
+
+.reviews {
+    flex: 40%;
+    margin: 0 10px;
+    padding: 10px 20px 30px 10px;
+    box-shadow:5px 5px 10px grey;
+    border-radius: 10px;
+}
