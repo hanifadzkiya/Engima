@@ -1,4 +1,5 @@
 ## Deskripsi aplikasi web
+Engima Web merupakan website untuk pemesanan tiket bioskop secara daring. Pada website ini, fitur yang disediakan adalah login, register user, pembelian tiket, melihat detail film, memberi ulasan dan rating pada film yang sudah ditonton dan melihat riwayat pembelian tiket.
 
 ## Daftar requirement
 1. User dapat register
@@ -18,11 +19,20 @@
 Tested with Ubuntu 18.04, PHP 7.2
 1. Pindahkan ke localhost apache
 2. In case di ubuntu server berada di /var/www/html
+3. Konfigurasi database di Config.php
+4. Jalankan Migration.php
+5. Jalankan semua file di folder Seed untuk generate data.
 
 ## Cara menjalankan server
-
+1. Menyalakan XAMPP
+2. arahkan localhost/<directory penyimpanan>
 
 ## Screenshot tampilan aplikasi
+![Detail](images/detail.png)
+![Search](images/search.png)
+![Review](images/review.png)
+![Transaction](images/transaction.png)
+
 ## Penjelasan mengenai pembagian tugas masing-masing anggota (lihat formatnya pada bagian pembagian tugas).
 Frontend
 
@@ -54,7 +64,10 @@ API Get Jadwal By Film ID = 13517120
 API get Film By ID = 13517120
 Add Cookie = 13517120
 Delete Cookie = 13517120
+API transaction = 13517123
+API home = 13517123
+API register = 13517123
 
 Kerjaan lain 
-Membuat Database = 13517120
+Membuat Database = 13517120,13517123
 Menggabungkan semua file = 13517120
