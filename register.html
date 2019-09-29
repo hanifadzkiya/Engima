@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" type="text/css" href="css/register_style.css">
+    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <body>
+        <div class="wrapper">
+            <p id="title">Welcome to <b>Engi</b>ma!</p>
+            <form action="#" method="POST"> <!--PHP action-->
+                <label>Username</label>
+                <input type="text" placeholder="joe.johndoe" name="username" class="intext" required>
+                <br>
+                <label>Email Address</label>
+                <input type="email" placeholder="joe@email.com" name="email" class="intext" required>
+                <br>
+                <label>Phone Number</label>
+                <input type="tel" placeholder="+62813xxxxxxxx" name="phone" class="intext" required>
+                <br>
+                <label>Password</label>
+                <input type="password" placeholder="Make as strong as possible" name="password" class="intext" required>
+                <br>
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Same as above" name="confirm" class="intext" required>
+                <br>
+                <label>Profile Picture</label>
+                <input type="file" name="pic" accept="Picture" id="pic">
+                
+                <br>
+                <input type="submit" value="Register" id="regist">
+            </form>
+            <p id="login">Already have account? <a href="#"> Login Here</a> </p><!--login.html-->
+        </div>
+    </body>
+</html>

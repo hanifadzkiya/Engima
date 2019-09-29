@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+body {
+    font-family: 'Lato'
+}
+.wrapper{
+    width:300px;
+    margin:3vw auto;
+    padding: 2vw;
+    box-shadow: 0px 0px 8px 0px rgba(201,201,201,0.7);
+}
+#title{
+    text-align: center;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px
+}
+.intext {
+    width: 94%;
+    padding: 7px;
+    border-radius: 4px;
+    border: 1px #c9c9c9 solid;
+}
+::placeholder{
+    color: gray;
+}
+
+#pic {
+    /*padding: 5px;
+    border-radius: 5px;
+    border: 1px solid grey;*/
+    margin-bottom: 20px;
+}
+
+#fileToUpload{
+    width: 45%;
+    display: block !important;
+    float: left;
+}
+
+#upload{
+    width: 45%;
+    font-size: 14px;
+    height: 60%;
+    display: block;
+    background-color: #c9c9c9;
+    float: right;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+#pic{
+    visibility: hidden;
+    display: none;
+}
+
+#regist {
+    width: 100%;
+    border: none;
+    background-color: #00C1EC;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    color: white;
+}
+#regist:hover{
+    opacity: 0.5;
+    background-color: #00C1EC;
+    color:black;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+#login {
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    margin: 15px auto;
+}
+#login a {
+    text-decoration: none;
+    color: #00C1EC;
+}
+#login a:hover{
+    color: grey;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.error_msg{
+    color: red;
+    font-size: 10px;
+    margin-top: 5px;
+    margin-left: 3px;
+}
+.inputform{
+    height: 50px;
+    margin-top: 5px;
+}
