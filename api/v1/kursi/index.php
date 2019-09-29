@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	$arr_kursi = Array();
 	$terisi = 0;
 
+	$terisi = 0;
 	while($kursi = $result_kursi->fetch_assoc()){
 		$arr_kursi[] = $kursi;
 		if($kursi["user_id"] != null){
