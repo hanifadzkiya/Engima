@@ -1,0 +1,12 @@
+{
+    "name": "wbd/tugas-besar-1-2019",
+    "description": "Tugas WBD tercinta",
+    "require": {
+        "vlucas/phpdotenv": "^3.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Engima\\": ""
+        }
+    }
+}
