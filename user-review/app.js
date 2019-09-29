@@ -1,6 +1,12 @@
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
 var urlParams = new URLSearchParams(window.location.search);
 let film_id = urlParams.get('film_id'); 
-let user_id = "3f4b4800-b35e-4e4b-b7dc-b355d1019584"; //Get from cookie later
+let user_id = getCookie("user_id"); //Get from cookie later
 let type;
 let methoded;
 let xhttp = new XMLHttpRequest();
