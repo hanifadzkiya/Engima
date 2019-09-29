@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+body {
+    font-family: 'Lato';
+}
+.wrapper{
+    width:300px;
+    margin:12% auto;
+    padding: 2vw;
+    box-shadow: 0px 0px 8px 0px rgba(201,201,201,0.7);
+}
+#title{
+    text-align: center;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #6d6d6d;
+}
+input {
+    margin-bottom: 15px;
+}
+p {
+    font-size: 12px;
+}
+h1 {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 8px 0px 30px 0px;
+}
+.intext {
+    width: 94%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px #c9c9c9 solid;
+    font-size: 11px;
+}
+#login{
+    font-size: 10px;
+}
+::placeholder{
+    color: gray;
+}
+#pic {
+    /*padding: 5px;
+    border-radius: 5px;
+    border: 1px solid grey;*/
+    margin-bottom: 20px;
+}
+#login {
+    width: 100%;
+    border: none;
+    background-color: #00C1EC;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    color: white;
+}
+#login:hover{
+    opacity: 0.5;
+    background-color: #00C1EC;
+    color:black;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+#register {
+    text-align: center;
+    font-size:1vw;
+    font-weight: bold;
+    margin: 0 auto 1vw;
+}
+#register a {
+    text-decoration: none;
+    color: #00C1EC;
+}
+#register a:hover{
+    color: grey;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
