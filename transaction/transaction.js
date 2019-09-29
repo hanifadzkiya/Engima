@@ -135,8 +135,7 @@ function displayTransReviewed(movie,first,id,uid){
 
     let buttcontent1 = document.createElement("a")
     buttcontent1.innerText = "Delete Review";
-    buttcontent1.setAttribute("href","");
-    param = "deleteReview(" +id+","+uid+")";
+    param = "deleteReview('" +id+"','"+uid+"')";
     buttcontent1.setAttribute("onclick",param);
     buttcontent1.classList.add("delete");
 
@@ -175,6 +174,7 @@ function deleteReview(id,uid){
 	};
     param = "film_id=" + id +"&user_id=" + uid;
 	xhttpSubmit.open("DELETE", "../api/v1/review/delete", true);
+    
 	xhttpSubmit.send(param);
 
 }
@@ -226,5 +226,5 @@ xmlhttp.onreadystatechange = function() {
     }
 };
 
-xmlhttp.open("GET","../api/v1/transaction/transaction.php?uname=" + value,true);
+xmlhttp.open("GET","../api/v1/transaction/transaction.php?id=" + value,true);
 xmlhttp.send();

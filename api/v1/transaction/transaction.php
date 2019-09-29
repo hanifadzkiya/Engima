@@ -1,19 +1,15 @@
 <?php
     error_reporting(E_ALL);
-    $val = $_REQUEST['uname'];
+    $val = $_REQUEST['id'];
+    $configs = include("../../../Config.php");
     //initialize var
-    $db_user = "root";
-    $db_pass = "sam";
-    $db_name = "engima";
-    $db_host = "localhost";
-
     //connect to the database
-    $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+    $db = mysqli_connect($configs["servername"], $configs["username"], $configs["password"], "engima");
     if(!$db){
         die('Could not connect: ' . mysqli_error($db));
     }
 
-    $sql1 = "SELECT * FROM user WHERE name='$val' ";
+    $sql1 = "SELECT * FROM user WHERE id='$val' ";
     $temp1 = mysqli_query($db,$sql1);
     $result1 = mysqli_fetch_array($temp1);
     $uid = $result1['id']; //userid
@@ -42,27 +38,6 @@
             $result3 = mysqli_fetch_array($query);
             array_push($arrFilm2, $result3["film_id"]);
         }
-
-        //if($arrayFilm2 == null){
-        //    for($i = 0; $i<count($arrFilm); $i++){
-        //        if($arrFilm[$i]["jam_tayang"] > $today){
-        //            array_push($hasil1, $arrFilm[$i]);
-        //        } else if ($arrFilm[$i]["jam_tayang"] <= $today){
-        //            array_push($hasil2, $arrFilm[$i]);
-        //        }
-        //    }
-        //} else {
-        //    for($j = 0; $j<count($arrFilm2); $j++){
-        //        for($i = 0; $i<count($arrFilm); $i++){
-        //            if($arrFilm[$i]["film_id"] == $arrFilm2[$j]){
-        //                array_push($hasil3, $arrFilm[$i]);
-        //            } else if($arrFilm[$i]["jam_tayang"] <= $toda){
-        //                array_push($hasil2, $arrFilm[$i]);
-        //            } else if($arrFilm[$i]["jam_tayang"] > $today)
-        //                array_push($hasil1, $arrFilm[$i]);
-        //        }
-        //    }
-        //}
         
         for($j = 0; $j<count($arrFilm2); $j++){
             for($i = 0; $i<count($arrFilm); $i++){
@@ -74,19 +49,6 @@
                     array_push($hasil1, $arrFilm[$i]);
             }
         }
-
-        //for($i = 0; $i<count($arrFilm); $i++){
-        //    for($j = 0; $j<count($arrFilm2); $j++){
-        //        if($arrFilm[$i]["jam_tayang"] > $today){
-        //            array_push($hasil1, $arrFilm[$i]);
-        //        } else if($arrFilm[$i]["film_id"] != $arrFilm2[$j] && $arrFilm[$i]["jam_tayang"] <= $today){
-        //            array_push($hasil2, $arrFilm[$i]);
-        //        } else if($arrFilm[$i]["film_id"] == $arrFilm2[$j] && $arrFilm[$i]["jam_tayang"] <= $today){
-        //            array_push($hasil3, $arrFilm[$i]);
-        //        }
-        //    }
-        //}
-
         $response["message"] = "Success get film by date";
         $response["uid"] = $uid;
         $response["data1"] = $hasil1;

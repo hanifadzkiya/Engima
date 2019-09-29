@@ -1,11 +1,11 @@
+<?php
+require_once("../Cookie.php");
+
+cekCookieOther();
+?>
 <!DOCTYPE html>
 <html>
     <head>
-        <?php 
-            if(!isset($_COOKIE['username']) || !isset($_COOKIE['password'])){
-                header("Location: login.php");
-            }
-        ?>
         <title>Transaction - Engima</title>
         <link rel="stylesheet" type="text/css" href="css/transaction_style.css">
     </head>
@@ -33,7 +33,7 @@
             <div id="transaction_list">
             </div>
             
-            <script type="text/javascript" src="transaction.js" one="<?php echo $_COOKIE['username'] ?>"></script>
+            <script type="text/javascript" src="transaction.js" one="<?php echo $_COOKIE['user_id'] ?>"></script>
         </div>
     </body>
 </html>
