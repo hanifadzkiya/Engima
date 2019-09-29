@@ -1,14 +1,14 @@
 <?php
-require_once("../Cookie.php");
+require_once "../Cookie.php";
 
 cekCookieOther();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="nav">
@@ -26,9 +26,9 @@ cekCookieOther();
             </div>
         </div>
     </div>
-	<div id="content">
+    <div id="content">
         
-	</div>
-	<script type="text/javascript" src="app.js"></script>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

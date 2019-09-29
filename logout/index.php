@@ -1,4 +1,4 @@
 <?php
-	require_once("../Cookie.php");
-	logout();
+    require_once "../Cookie.php";
+    logout();
 ?>

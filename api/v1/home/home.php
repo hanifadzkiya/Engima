@@ -1,11 +1,11 @@
 <?php
     //initialize var
-    $configs = include("../../../Config.php");
+    $configs = include "../../../Config.php";
     //connect to the database
     $db = mysqli_connect($configs["servername"], $configs["username"], $configs["password"], "engima");
-    if(!$db){
-        die('Could not connect: ' . mysqli_error($db));
-    }
+if(!$db) {
+    die('Could not connect: ' . mysqli_error($db));
+}
     date_default_timezone_set("Asia/Jakarta");
     $today = date("Y-m-d h:m:s");
     $today2 = date("Y-m-d")."%";
@@ -16,20 +16,20 @@
     //$date3 = $yesterday2->format('Y-m-d') . "%";
 
     $sql = "SELECT * FROM jadwal JOIN film ON jadwal.film_id = film.id WHERE jadwal.jam_tayang >= '$today' AND jadwal.jam_tayang LIKE '$today2'";
-    $resultFilm = mysqli_query($db,$sql);
+    $resultFilm = mysqli_query($db, $sql);
     $arrFilm = Array();
     $response = Array();
-    if(mysqli_num_rows($resultFilm) > 0) {
-        while($film = $resultFilm->fetch_assoc()){
-            $arrFilm[] = $film;
-        }
-        $response["message"] = "Success get film by date";
-        $response["data"] = $arrFilm;
-        $response["status"] = 200;
-    } else {
-        $response["message"] = "Film not found";
-        $response["status"] = 200;
+if(mysqli_num_rows($resultFilm) > 0) {
+    while($film = $resultFilm->fetch_assoc()){
+        $arrFilm[] = $film;
     }
+    $response["message"] = "Success get film by date";
+    $response["data"] = $arrFilm;
+    $response["status"] = 200;
+} else {
+    $response["message"] = "Film not found";
+    $response["status"] = 200;
+}
     http_response_code(200); //Set HTTP Response Code
 
     header('Content-Type: application/json'); 

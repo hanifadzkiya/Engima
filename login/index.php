@@ -1,7 +1,8 @@
 <?php 
 
-require_once("../Cookie.php");
-function verify($password_input,$password_hash){
+require_once "../Cookie.php";
+function verify($password_input,$password_hash)
+{
     return (crypt($password_input, $password_hash) == $password_hash);
 }
 
@@ -15,7 +16,7 @@ function checkPassword($email,$password)
         while($row = $result->fetch_assoc()) {
             $hash_password = $row["password"];
         }
-        return verify($password,$hash_password);
+        return verify($password, $hash_password);
     } else {
         return false;
     }
@@ -27,7 +28,7 @@ if (isset($_POST['email'])) {
     $password=$_POST['password'];
 
     if (($email != "") && ($password != "")) {
-        if (checkPassword($email,$password)) {
+        if (checkPassword($email, $password)) {
             $conn = new mysqli($configs["servername"], $configs["username"], $configs["password"], "engima");
             $result = $conn->query("SELECT * FROM user where email='".$email."'");
             $row = $result->fetch_assoc();
@@ -35,15 +36,15 @@ if (isset($_POST['email'])) {
             $user_id = $row["id"];
             
             $result = $conn->query("SELECT * FROM user where user_id='".$user_id."'");
-            if(mysqli_num_rows($result) > 0){
+            if(mysqli_num_rows($result) > 0) {
                 print "sudah ada";
             } else {
                 $expire_at = date('Y-m-d H:i:s', time()+18000);
                 $access_token = rand()."+".$expire_at;
                 $sql = "INSERT INTO access_token  (access_token, user_id, expire_at) VALUES ('" . $access_token . "','".$user_id."','".$expire_at."')";
-                if($conn->query($sql)){
-                    setcookie('user_id',$user_id, time()+18000,'/');
-                    setcookie('access_token', $access_token, time()+18000,'/');
+                if($conn->query($sql)) {
+                    setcookie('user_id', $user_id, time()+18000, '/');
+                    setcookie('access_token', $access_token, time()+18000, '/');
                 } else {
 
                 }

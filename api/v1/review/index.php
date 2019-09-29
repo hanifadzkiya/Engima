@@ -1,18 +1,18 @@
 <?php
     $conn = new mysqli("localhost", "root", "", "engima");
     $res = $conn>query("SELECT user_id FROM transaksi WHERE id_transaksi=".$_GET['id_transaksi'].";");  
-    if ($res->fetch_assoc()['username'] != $_COOKIE['user']) {
-        header('Location:history.php');
-        die();
-    }
+if ($res->fetch_assoc()['username'] != $_COOKIE['user']) {
+    header('Location:history.php');
+    die();
+}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="nav">
@@ -30,12 +30,12 @@
             </div>
         </div>
     </div>
-	<div id="content">
-		<h2 id="movie-name">
-			<img src="buy-ticket_img_chevron-left.svg">
-			The Avengers
-		</h2>
-		<div id="user-review-container">
+    <div id="content">
+        <h2 id="movie-name">
+            <img src="buy-ticket_img_chevron-left.svg">
+            The Avengers
+        </h2>
+        <div id="user-review-container">
             <form name="reviewform" action="#" method="POST">
                 <div class="user-review-column">
                     <div class="form-label">
@@ -78,6 +78,6 @@
                 </div>
             </form>
         </div>
-	</div>
+    </div>
 </body>
 </html>

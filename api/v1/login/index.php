@@ -1,6 +1,7 @@
 <?php 
 
-function verify($password_input,$password_hash){
+function verify($password_input,$password_hash)
+{
     return (crypt($password_input, $password_hash) == $password_hash);
 }
 
@@ -13,7 +14,7 @@ function checkPassword($email,$password)
         while($row = $result->fetch_assoc()) {
             $hash_password = $row["password"];
         }
-        return verify($password,$hash_password);
+        return verify($password, $hash_password);
     } else {
         return false;
     }
@@ -25,13 +26,13 @@ if (isset($_POST['email'])) {
 
     if (($email != "") && ($password != "")) {
 
-        if (checkPassword($email,$password)) {
+        if (checkPassword($email, $password)) {
             $conn = new mysqli("localhost", "root", "1256", "engima");
             $result = $conn->query("SELECT * FROM user where email='".$email."'");
             $row = $result->fetch_assoc();
             $username = $row["name"];
             $user_id = $row["id"];
-            setcookie('user_id',$user_id);
+            setcookie('user_id', $user_id);
             setcookie('user', $username, 0, '/');
             header("Location:Home.php");
             die();
