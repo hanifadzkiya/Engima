@@ -1,3 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="nav">
+        <div class="nav_content">
+            <div class="engi"><b>Engi</b>ma</div>
+            <div class="search-container">
+                <form action="/action_page.php"><!--GANTI NANTI-->
+                    <input type="text" placeholder="Search Movie" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="link">
+                <a href="#">Logout</a>
+                <a href="#">Transactions</a>
+            </div>
+        </div>
+    </div>
+<div id="content">
+		<div id="film">
+			<img width="50px" height="50px" src="images/right-icon.png">
+			<div class="movie-summary">
+				<h2 id="movie-title">Avengers: Endgame</h2>
+				<p><b>September 4, 2019 - 09.40 pm</b></p>
+			</div>
+		</div>
+		<div class="row">
+		  <div class="column seat">
+				<ul id="seat-board">
+					<li class="full"><b>1</b></li>
+					<li class="empty">2</li>
+					<li class="full">3</li>
+					<li class="full">4</li>
+					<li class="full">5</li>
+					<li class="full">6</li>
+					<li class="full">7</li>
+					<li class="full">8</li>
+					<li class="full">9</li>
+					<li class="full">10</li>
+					<li class="empty">11</li>
+					<li class="empty">12</li>
+					<li class="empty">13</li>
+					<li class="empty">14</li>
+					<li class="empty">15</li>
+					<li class="empty">16</li>
+					<li class="empty">17</li>
+					<li class="empty">18</li>
+					<li class="empty">19</li>
+					<li class="empty">20</li>
+					<li class="empty">21</li>
+					<li class="empty">22</li>
+					<li class="empty">23</li>
+					<li class="empty">24</li>
+					<li class="empty">25</li>
+					<li class="empty">26</li>
+					<li class="empty">27</li>
+					<li class="empty">28</li>
+					<li class="empty">29</li>
+					<li class="empty">30</li>
+				</ul>
+				<div id="screen" >
+					Screen
+				</div>
+		  </div>
+		  <div class="column summary">
+				<h3 id="summary-title">Booking Summary</h3>
+				<p><b>Avengers: Endgame</b></p>
+				<p>September 4, 2019 - 09.40 PM </p>
+				<div id="textbox">
+					<p class="f-left"><b>Seat #18</b></p>
+					<p class="f-right"><b>Rp 45000</b></p>
+				</div>
+				<button id="buy-button">Buy Ticket</button>
+		  </div>
+		</div>
+	</div>
+	<script type="text/javascript" src="buy-ticket/app.js"></script>
+</body>
+<style type="text/css">
 	@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 	html{
 		height: 100%;
@@ -10,7 +93,6 @@
 	}
 	p {
 		font-size: 12px;
-		color: #d8d8d8;
 	}
 	#content {
 		width: 67%;
@@ -33,13 +115,12 @@
 		border-radius: 5px;
 		margin-top: 20px;
 	}
-	.button {
+	#buy-button {
 	    background-color: #00e1ec;
 	    color:white;
 	    padding: 10px;
 	    border: none;
 	    border-radius: 5px;
-	    cursor: pointer;
 	}
 
 	#summary-title {
@@ -93,16 +174,6 @@
 		height: 16px;
 		text-align: center;
 		background-color: #ffffff;
-		cursor: pointer;
-	}
-	.selected {
-		color: white;
-		border: 1px solid #10bee1;
-		border-radius: 5px;
-		width: 16px;
-		height: 16px;
-		text-align: center;
-		background-color: #10bee1;
 	}
 	.row {
 	  display: flex;
@@ -195,46 +266,7 @@
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
-/*Modal*/
-.modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1);
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-}
-.modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 2.5rem;
-    border-radius: 0.5rem;
-    text-align: center;
-}
-.modal-content p {
-	color: #000000;
-	margin: 30px 0px;
-}
-.modal-content .button {
-	width: 60%;
-	margin: auto;
-}
-#payment-success {
-	color: #00e1ec;
-}
-.show-modal {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.0);
-    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-}
+
 
 	@media only screen and (min-width: 800px) {
 		#buy-button {
@@ -290,3 +322,5 @@
 			text-align: center;
 		}
 	}
+</style>
+</html>
