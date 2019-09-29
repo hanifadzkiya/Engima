@@ -1,6 +1,7 @@
 let resultContainer = document.getElementById("movie_list");
 
-function displayMovieList(movie){
+function displayMovieList(movie)
+{
     let divContent = document.createElement("div");
     divContent.classList.add("movie");
 
@@ -26,7 +27,7 @@ function displayMovieList(movie){
 }
 
 var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
+xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         var movies = JSON.parse(this.responseText);
         totalMovie = movies["data"].length;
@@ -36,10 +37,12 @@ xmlhttp.onreadystatechange = function() {
     }
 };
 
-function getCookie(name) {
-  var value = "; " + document.cookie;
-  var parts = value.split("; " + name + "=");
-  if (parts.length == 2) return parts.pop().split(";").shift();
+function getCookie(name)
+{
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) { return parts.pop().split(";").shift();
+    }
 }
 
 xmlhttp.open("GET","../api/v1/home/home.php",true);
@@ -47,7 +50,7 @@ xmlhttp.send();
 
 
 var xmlhttpUsername = new XMLHttpRequest();
-xmlhttpUsername.onreadystatechange = function() {
+xmlhttpUsername.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         var movies = JSON.parse(this.responseText);
         var username = movies["data"]["name"];

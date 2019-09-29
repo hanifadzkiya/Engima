@@ -1,14 +1,14 @@
 <?php
-require_once("../Cookie.php");
+require_once "../Cookie.php";
 
 cekCookieOther();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="nav">
@@ -27,24 +27,24 @@ cekCookieOther();
         </div>
     </div>
 <div id="content">
-		<div id="movie">
-			<img id="back" src="img/chevron-left.svg" onclick="back()">
-		</div>
-		<div class="row">
-		  <div class="column seat">
-				<ul id="seat-board">
-					
-				</ul>
-				<div id="screen" >
-					Screen
-				</div>
-		  </div>
-		  <div class="column summary">
-				<h3 id="summary-title">Booking Summary</h3>
-				<p id="not-select-message">You haven't selected any seat yeat. Please click on one of the seat provided.</p>
-		  </div>
-		</div>
-	</div>
+        <div id="movie">
+            <img id="back" src="img/chevron-left.svg" onclick="back()">
+        </div>
+        <div class="row">
+          <div class="column seat">
+                <ul id="seat-board">
+                    
+                </ul>
+                <div id="screen" >
+                    Screen
+                </div>
+          </div>
+          <div class="column summary">
+                <h3 id="summary-title">Booking Summary</h3>
+                <p id="not-select-message">You haven't selected any seat yeat. Please click on one of the seat provided.</p>
+          </div>
+        </div>
+    </div>
     <div class="modal">
         <div class="modal-content">
             <h2 id="payment-success">Payment Success</h2>
@@ -52,7 +52,7 @@ cekCookieOther();
             <div class="button"><a href="../transaction" id="history">Go To Transaction History</a></div>
         </div>
     </div>
-	<script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 </body>
 <style type="text/css">
 

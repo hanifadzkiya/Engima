@@ -1,38 +1,38 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 html{
-	height: 100%;
+    height: 100%;
 }
 body {
-	background-color: #262626;
-	margin: 0px;
-	font-family: 'Lato', sans-serif;
+    background-color: #262626;
+    margin: 0px;
+    font-family: 'Lato', sans-serif;
     height: 100%;
 }
 h1 {
-	font-size: 16px;
-	margin: 12px;
+    font-size: 16px;
+    margin: 12px;
     height: 100%;
 }
 p {
-	font-size: 14px;
+    font-size: 14px;
 }
 h4 {
-	color : #626262;
+    color : #626262;
 }
 a {
     text-decoration: none;
 }
 #content {
-	background-color: #ffffff;
-	padding: 5%;
-	width: 67%;
-	min-height: 100%;
-	margin: auto;
+    background-color: #ffffff;
+    padding: 5%;
+    width: 67%;
+    min-height: 100%;
+    margin: auto;
 }
 /*Pagination CSS*/
 #pagination {
-	padding: 20px;
-	text-align: center;
+    padding: 20px;
+    text-align: center;
 }
 
 #pagination a {
@@ -41,19 +41,19 @@ a {
 }
 
 #pagination .inactive {
-	color: #a7a7a7;
+    color: #a7a7a7;
 }
 
 #pagination .number.inactive {
-	border: 1px solid #a7a7a7;
+    border: 1px solid #a7a7a7;
 }
 
 #pagination .active {
-	color: #00c1e7;
+    color: #00c1e7;
 }
 
 #pagination .number.active {
-	border: 1px solid #00c1e7;
+    border: 1px solid #00c1e7;
 }
 /*NAVIGATION*/
 .nav{
@@ -123,26 +123,26 @@ a {
 
 /*Nama Film*/
 #movie-name img {
-	width: 18px;
-	height: 18px;
+    width: 18px;
+    height: 18px;
 }
 
 #user-review-container {
-	width: 70%;
-	margin: auto;
+    width: 70%;
+    margin: auto;
 }
 
 .user-review-column {
-	display: flex; 
-	padding: 15px 0px;
-	width: 100%;
+    display: flex; 
+    padding: 15px 0px;
+    width: 100%;
 }
 .form-label {
-	width: 25%;
+    width: 25%;
 }
 .form {
-	margin: 12px 0px 19px 28px;
-	width: 75%;
+    margin: 12px 0px 19px 28px;
+    width: 75%;
 }
 #review{
     width: 100%;
@@ -152,7 +152,7 @@ a {
     resize: none;
 }
 .rating {
-	padding: 0px;
+    padding: 0px;
 }
 /*Star Rating*/
 .rating {
@@ -215,34 +215,34 @@ a {
 }
 
 @media only screen and (max-width: 600px) {
-	#content {
-		padding: 100px 10px 100px 10px;
-		color: red;
-		width: 80%;
-	}
-	/* Navbar */
-	.search-container {
-	    width: 100%;
-	    padding: 0px;
-	    margin: 10px 0px;
-	}
-	.link {
-		text-align: center;
-	}
+    #content {
+        padding: 100px 10px 100px 10px;
+        color: red;
+        width: 80%;
+    }
+    /* Navbar */
+    .search-container {
+        width: 100%;
+        padding: 0px;
+        margin: 10px 0px;
+    }
+    .link {
+        text-align: center;
+    }
 
 }
 @media only screen and (min-width: 800px){
-	body {
-		height:100%;
-	}
-	/* Navbar */
-	.engi {
-		float: left;
-	}
-	.search-container {
-		float: left;
-	}
-	.link a {
-	    float: right;
-	}
+    body {
+        height:100%;
+    }
+    /* Navbar */
+    .engi {
+        float: left;
+    }
+    .search-container {
+        float: left;
+    }
+    .link a {
+        float: right;
+    }
 } 

@@ -14,10 +14,11 @@ let resultContainer = document.getElementById("transaction_list");
 //    return value;
 //}
 
-function displayTransLater(movie,first){
+function displayTransLater(movie,first)
+{
     let divContent = document.createElement("div");
     divContent.classList.add("trans");
-    if (first != true){
+    if (first != true) {
         divContent.classList.add("notfirst");
     }
 
@@ -45,7 +46,7 @@ function displayTransLater(movie,first){
 
     divContent.appendChild(posterContent);
     divContent.appendChild(movContent);
-    if (first != true){
+    if (first != true) {
         let pembatas = document.createElement("hr");
         resultContainer.appendChild(pembatas);
         resultContainer.appendChild(divContent);
@@ -54,10 +55,11 @@ function displayTransLater(movie,first){
     }
 }
 
-function displayTransReview(movie,first,id){
+function displayTransReview(movie,first,id)
+{
     let divContent = document.createElement("div");
     divContent.classList.add("trans");
-    if (first != true){
+    if (first != true) {
         divContent.classList.add("notfirst");
     }
 
@@ -97,7 +99,7 @@ function displayTransReview(movie,first,id){
     divContent.appendChild(posterContent);
     divContent.appendChild(movContent);
     divContent.appendChild(button);
-    if (first != true){
+    if (first != true) {
         let pembatas = document.createElement("hr");
         resultContainer.appendChild(pembatas);
         resultContainer.appendChild(divContent);
@@ -106,10 +108,11 @@ function displayTransReview(movie,first,id){
     }
 }
 
-function displayTransReviewed(movie,first,id,uid){
+function displayTransReviewed(movie,first,id,uid)
+{
     let divContent = document.createElement("div");
     divContent.classList.add("trans");
-    if (first != true){
+    if (first != true) {
         divContent.classList.add("notfirst");
     }
 
@@ -156,7 +159,7 @@ function displayTransReviewed(movie,first,id,uid){
     divContent.appendChild(posterContent);
     divContent.appendChild(movContent);
     divContent.appendChild(button);
-    if (first != true){
+    if (first != true) {
         let pembatas = document.createElement("hr");
         resultContainer.appendChild(pembatas);
         resultContainer.appendChild(divContent);
@@ -165,23 +168,24 @@ function displayTransReviewed(movie,first,id,uid){
     }
 }
 
-function deleteReview(id,uid){
-	let xhttpSubmit = new XMLHttpRequest();
-	xhttpSubmit.onreadystatechange = function() {
+function deleteReview(id,uid)
+{
+    let xhttpSubmit = new XMLHttpRequest();
+    xhttpSubmit.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(xhttpSubmit.responseText);
         }
-	};
+    };
     param = "film_id=" + id +"&user_id=" + uid;
-	xhttpSubmit.open("DELETE", "../api/v1/review/delete", true);
+    xhttpSubmit.open("DELETE", "../api/v1/review/delete", true);
     
-	xhttpSubmit.send(param);
+    xhttpSubmit.send(param);
 
 }
 
 
 var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
+xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         var movies = JSON.parse(this.responseText);
         uid = movies["uid"];
@@ -191,15 +195,15 @@ xmlhttp.onreadystatechange = function() {
         console.log(totalMovie1);
         console.log(totalMovie2);
         console.log(totalMovie3);
-        if(totalMovie1 != 0){
+        if(totalMovie1 != 0) {
             first = 1;
-        } else if (totalMovie1 == 0 && totalMovie2 != 0){
+        } else if (totalMovie1 == 0 && totalMovie2 != 0) {
             first = 2;
-        } else if (totalMovie1 == 0 && totalMovie2 == 0 && totalMovie3 == 0){
+        } else if (totalMovie1 == 0 && totalMovie2 == 0 && totalMovie3 == 0) {
             first = 3;
         }
         for(let index = 0;index < totalMovie1;index++){
-            if( index == 0 && first == 1){
+            if(index == 0 && first == 1) {
                 displayTransLater(movies["data1"][index],true);
             } else {
                 displayTransLater(movies["data1"][index],false);
@@ -208,7 +212,7 @@ xmlhttp.onreadystatechange = function() {
         }
         for(let index = 0;index < totalMovie2;index++){
             id = movies["data2"][index]["film_id"];
-            if( index == 0 && first == 2){
+            if(index == 0 && first == 2) {
                 displayTransReview(movies["data2"][index],true,id);
                 
             } else {
@@ -217,7 +221,7 @@ xmlhttp.onreadystatechange = function() {
         }
         for(let index = 0;index < totalMovie3;index++){
             id = movies["data3"][index]["film_id"];
-            if( index == 0 && first == 3){
+            if(index == 0 && first == 3) {
                 displayTransReviewed(movies["data3"][index],true,id,uid);
             } else {
                 displayTransReviewed(movies["data3"][index],false,id,uid);

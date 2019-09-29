@@ -1,5 +1,5 @@
 <?php
-require_once("../Cookie.php");
+require_once "../Cookie.php";
 
 cekCookieOther();
 ?>
