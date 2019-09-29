@@ -1,3 +1,8 @@
+<?php 
+
+require_once("../Cookie.php");
+cekCookieLoginRegister();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,17 +41,8 @@
     <?php
         error_reporting(0);
         require_once '../Model/User.php';
-        
-
-
-        //initialize var
-        $db_user = "root";
-        $db_pass = "sam";
-        $db_name = "engima";
-        $db_host = "localhost";
-
         //connect to the database
-        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+        $db = mysqli_connect($configs["servername"], $configs["username"], $configs["password"], $db_name);
         if(!$db){
             die('Could not connect: ' . mysqli_error($db));
         }
@@ -126,10 +122,20 @@
                 //update database
                 $user = new User();
                 $user->add($username, $email, $phone, $pass_1, $newFileName);
-            
-                setcookie('username', $username, time() + 3600, "/");
-                setcookie('password', $pass_1, time() + 3600, "/");
-                header("Location: ../home/index.php");
+                $result = $user->getByEmail($email);
+                while($row = $result->fetch_assoc()){
+                    $user_id = $row["id"];
+                }
+                $expire_at = date('Y-m-d H:i:s', time()+18000);
+                $access_token = rand()."+".$expire_at;
+                $sql = "INSERT INTO access_token  (access_token, user_id, expire_at) VALUES ('" . $access_token . "','".$user_id."','".$expire_at."')";
+                if($user->runQuery($sql)){
+                    setcookie('user_id',$user_id, time()+18000,'/');
+                    setcookie('access_token', $access_token, time()+18000,'/');
+                } else {
+
+                }
+                header("Location: ../home");
                 exit();
             }
         }

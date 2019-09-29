@@ -14,7 +14,7 @@ function displayMovieDetail(movie){
 	let detailParagraph = document.createElement("p");
 	let detailAnchor = document.createElement("a");
 	detailAnchor.innerHTML = "View Details";
-	detailAnchor.setAttribute("href","film/detail?id"+movie["id"]);
+	detailAnchor.setAttribute("href","../movie-detail?film_id="+movie["id"]);
 	let detailIcon = document.createElement("img");
 	detailIcon.classList.add("detail-icon");
 	detailIcon.src = "img/detail-icon.png";
@@ -84,12 +84,12 @@ function createActiveElementPagination(nomor){
 	page.classList.add("active");
 	if(typeof(nomor) == "number"){
 		page.classList.add("number");
-		page.setAttribute("href","search?keyword="+keyword+"&page="+nomor);
+		page.setAttribute("href","../search?keyword="+keyword+"&page="+nomor);
 	} else {
 		if(nomor == "back"){
-			page.setAttribute("href","search?keyword="+keyword+"&page="+page-1);
+			page.setAttribute("href","../search?keyword="+keyword+"&page="+page-1);
 		} else {
-			page.setAttribute("href","search?keyword="+keyword+"&page="+page+1);
+			page.setAttribute("href","../search?keyword="+keyword+"&page="+page+1);
 		}
 	}
 	page.innerText = nomor;

@@ -17,9 +17,17 @@ function windowOnClick(event) {
     }
 }
 
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
 window.addEventListener("click", windowOnClick);
 
-
+function back(){
+	window.history.back();
+}
 function displayMovieSummary(title,jamTayang){
 	let movieDiv = document.getElementById("movie")
 	let movieSummaryDiv = document.createElement("div");
@@ -62,7 +70,15 @@ function changeBookingSummary(nomor){
 function buyTicket(){
 	let selectedSeat = document.getElementsByClassName("selected")[0];
 	let nomorSeat = selectedSeat.innerText;
-	toggleModal();
+	let xhttpBuy = new XMLHttpRequest();
+	xhttpBuy.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	       toggleModal();
+	    }
+	};
+	params = "jadwal_id="+jadwalId+"&user_id="+getCookie("user_id")+"&nomor="+nomorSeat;
+	xhttpBuy.open("PUT", "../api/v1/ticket/buy", true);
+	xhttpBuy.send(params);
 }
 
 function displayBookingSummary(){

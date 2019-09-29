@@ -21,7 +21,7 @@ function isValid($access_token){
     }
 }
 
-function cekCookieLogin(){
+function cekCookieLoginRegister(){
     if(isset($_COOKIE["access_token"])){
         if(isValid($_COOKIE["access_token"])){
             header("Location:../home");

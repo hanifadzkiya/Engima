@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     $reviewTable = new Review();
 
     $response = Array();
-    if($reviewTable->delete($id)){
+    if($reviewTable->delete($user_id,$film_id)){
     	$response["message"] = "Delete successfull";
     	$response["status"] = 200;
     	http_response_code(200);

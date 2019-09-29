@@ -16,7 +16,7 @@ function displayMovieDescription(movie){
 	movieImageDiv.classList.add("movie-image");
 	let movieImage = document.createElement("img");
 	movieImage.classList.add("cover-movie");
-	movieImage.setAttribute("src","img/bean.jpeg");
+	movieImage.setAttribute("src","../images/movie/default.jpg");
 	movieImageDiv.appendChild(movieImage);
 	movieContainer.appendChild(movieImageDiv);
 	let descriptionDiv = document.createElement("div");
@@ -72,7 +72,7 @@ function displayEachJadwal(jadwal,movie){
 			tr.appendChild(empty);
 			if(responseKursi["data"]["terisi"] < 30){
 				let available = document.createElement("td");
-				available.innerText = "Book Now";
+				available.innerHTML = '<a href="../buy-ticket?jadwal_id='+jadwal["id"]+'">Book Now</a>';
 				available.classList = "available";
 				tr.appendChild(available);
 			} else {
@@ -111,7 +111,7 @@ function displayEachReview(review){
 	       let detailDiv = document.createElement("div");
 	       detailDiv.classList.add("review-detail");
 	       let username = document.createElement("p");
-	       username.innerText = responseUser["data"]["username"];
+	       username.innerText = responseUser["data"]["name"];
 	       detailDiv.appendChild(username);
 	       let star = document.createElement("img");
 	       star.classList.add("star-icon-2");
@@ -127,7 +127,7 @@ function displayEachReview(review){
 	       reviewsDiv.appendChild(reviewDiv);
 	    }
 	};
-	xhttpUser.open("GET", "temp2.php?id="+review["user_id"], true);
+	xhttpUser.open("GET", "../api/v1/user?id="+review["user_id"], true);
 	xhttpUser.send();
 }
 

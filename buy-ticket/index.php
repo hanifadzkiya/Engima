@@ -1,3 +1,8 @@
+<?php
+require_once("../Cookie.php");
+
+cekCookieOther();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +28,7 @@
     </div>
 <div id="content">
 		<div id="movie">
-			<img width="50px" height="50px" src="buy-ticket/img/right-icon.png">
+			<img id="back" src="img/chevron-left.svg" onclick="back()">
 		</div>
 		<div class="row">
 		  <div class="column seat">

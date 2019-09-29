@@ -12,25 +12,24 @@
     </head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <body>
-        <div class="nav">
-            <div class="nav_content">
-                <div class="engi"><b>Engi</b>ma</div>
-                <div class="search-container">
-                    <form action="../search"+search><!--GANTI NANTI-->
-                        <input type="text" placeholder="Search Movie" name="search">
-                        <button type="submit"><img id="search-icon" src="images/search-icon.svg"></button>
-                    </form>
-                </div>
-                <div class="link">
-                    <a href="#">Logout</a>
-                    <a href="#">Transactions</a>
-                </div>
+    <div class="nav">
+        <div class="nav_content">
+            <div class="engi"><a href="../home"><b>Engi</b>ma</a></div>
+            <div class="search-container">
+                <form action="../search?keyword="+keyworc><!--GANTI NANTI-->
+                    <input type="text" placeholder="Search Movie" name="keyword">
+                    <button type="submit"><img id="search-icon" src="search/img/search-icon.svg"></button>
+                </form>
             </div>
-            
+            <div class="link">
+                <a href="../logout">Logout</a>
+                <a href="../transaction">Transactions</a>
+            </div>
         </div>
+    </div>
         <div class="content">
             <div class="head">
-                <h1>Hello, <div class="name"><?php echo $_COOKIE['username'] ?></div></h1> 
+                <h1>Hello, <div id="name" class="name"></div></h1> 
                 <br>
                 <p>Now Playing</p>
             </div>

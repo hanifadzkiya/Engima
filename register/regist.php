@@ -3,17 +3,10 @@
     $name = $_REQUEST['name'];
     $error = "";
 
-    //echo $val;
-    //echo $name;
-
-    //initialize var
-    $db_user = "root";
-    $db_pass = "sam";
-    $db_name = "engima";
-    $db_host = "localhost";
+    $configs = include("../Config.php");
 
     //connect to the database
-    $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+    $db = mysqli_connect($configs["servername"], $configs["username"], $configs["password"],"engima");
     if(!$db){
         die('Could not connect: ' . mysqli_error($db));
     }
@@ -32,7 +25,6 @@
     if($name == "email"){
         $sql = "SELECT * FROM user WHERE email= '".$val."'";
         $result = mysqli_query($db,$sql);
-
         if(mysqli_affected_rows($db)>=1){
             $error = "Email is already used! Please use another email.";
         }

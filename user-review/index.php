@@ -1,3 +1,8 @@
+<?php
+require_once("../Cookie.php");
+
+cekCookieOther();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,22 +13,22 @@
 <body>
     <div class="nav">
         <div class="nav_content">
-            <div class="engi"><b>Engi</b>ma</div>
+            <div class="engi"><a href="../home"><b>Engi</b>ma</a></div>
             <div class="search-container">
-                <form action="/action_page.php"><!--GANTI NANTI-->
-                    <input type="text" placeholder="Search Movie" name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                <form action="../search?keyword="+keyworc><!--GANTI NANTI-->
+                    <input type="text" placeholder="Search Movie" name="keyword">
+                    <button type="submit"><img id="search-icon" src="img/search-icon.svg"></button>
                 </form>
             </div>
             <div class="link">
-                <a href="#">Logout</a>
-                <a href="#">Transactions</a>
+                <a href="../logout">Logout</a>
+                <a href="../transaction">Transactions</a>
             </div>
         </div>
     </div>
 	<div id="content">
 		<h2 id="movie-name">
-			<img src="img/chevron-left.svg">
+			<img src="../images/chevron-left.svg"  onclick="back()">
 			The Avengers
 		</h2>
 		<div id="user-review-container">
@@ -33,6 +38,16 @@
 				</div>
 				<div class="form">
 					  <div class="rating">
+					    <input type="radio" id="star10" name="rate" value="10" />
+					    <label for="star10" title="text">10 stars</label>
+					    <input type="radio" id="star9" name="rate" value="9" />
+					    <label for="star9" title="text">9 stars</label>
+					    <input type="radio" id="star8" name="rate" value="8" />
+					    <label for="star8" title="text">8 stars</label>
+					    <input type="radio" id="star7" name="rate" value="7" />
+					    <label for="star7" title="text">7 stars</label>
+					    <input type="radio" id="star6" name="rate" value="6" />
+					    <label for="star6" title="text">6 star</label>
 					    <input type="radio" id="star5" name="rate" value="5" />
 					    <label for="star5" title="text">5 stars</label>
 					    <input type="radio" id="star4" name="rate" value="4" />

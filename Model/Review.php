@@ -54,8 +54,8 @@ Class Review extends Database {
         return $this->runQuery($sql); 
     }
 
-    public function delete($id){
-        $sql = "DELETE FROM ".$this->tablename." WHERE id='".$id."'";
+    public function delete($user_id,$film_id){
+        $sql = "DELETE FROM ".$this->tablename." WHERE user_id='".$user_id."'&film_id='".$film_id."'";
         return ($this->runQuery($sql) === true);
     }
 

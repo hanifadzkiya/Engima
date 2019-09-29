@@ -1,8 +1,13 @@
 var urlParams = new URLSearchParams(window.location.search);
 let film_id = urlParams.get('film_id'); 
-let user_id = "80ad1297-9dc2-4ffa-ab91-033f903debf4"; //Get from cookie later
+let user_id = "3f4b4800-b35e-4e4b-b7dc-b355d1019584"; //Get from cookie later
 let type;
+let methoded;
 let xhttp = new XMLHttpRequest();
+
+function back(){
+	window.history.back();
+}
 
 function displayExistingReview(review){
 	let textArea = document.getElementById("review");
@@ -12,7 +17,7 @@ function displayExistingReview(review){
 }
 
 function submit(){
-	let review = document.getElementById("review").innerHTML;
+	let review = document.getElementById("review").innerText;
 	let rating;
 	for(let index = 1;index <= 5;index++){
 		let ratingStar = document.getElementById("star" + index);
@@ -31,9 +36,10 @@ function submit(){
 	       console.log(xhttpSubmit.responseText);
 	    }
 	};
-
-	xhttpSubmit.open("PUT", "../api/v1/review/"+type, true);
-	xhttpSubmit.send("film_id=3");
+	console.log(methoded);
+	xhttpSubmit.open(methoded, "../api/v1/review/"+type+"/index.php", true);
+	xhttpSubmit.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhttpSubmit.send("film_id="+film_id+"&film_id="+film_id+"&rating="+rating+"&review="+review);
 
 }
 
@@ -41,11 +47,13 @@ xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
        let response = JSON.parse(xhttp.responseText);
-       if(response["message"] = "Success get review by film and user"){
+       if(response["message"] == "Success get review by film and user"){
        		displayExistingReview(response["data"][0]);
        		type = "update";
+       		methoded = "PUT";
        } else {
        		type = "create";
+       		methoded = "POST";
        }
     }
 };

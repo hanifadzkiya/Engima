@@ -36,6 +36,26 @@ xmlhttp.onreadystatechange = function() {
     }
 };
 
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
 xmlhttp.open("GET","../api/v1/home/home.php",true);
 xmlhttp.send();
+
+
+var xmlhttpUsername = new XMLHttpRequest();
+xmlhttpUsername.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var movies = JSON.parse(this.responseText);
+        var username = movies["data"]["name"];
+        var nama = document.getElementById("name");
+        nama.innerHTML = username;
+    }
+};
+
+xmlhttpUsername.open("GET","../api/v1/user?id="+getCookie("user_id"),true);
+xmlhttpUsername.send();
 

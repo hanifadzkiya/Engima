@@ -1,7 +1,6 @@
 <?php 
 
 require_once("../Cookie.php");
-
 function verify($password_input,$password_hash){
     return (crypt($password_input, $password_hash) == $password_hash);
 }
@@ -22,7 +21,7 @@ function checkPassword($email,$password)
     }
 }
 
-cekCookieLogin();
+cekCookieLoginRegister();
 if (isset($_POST['email'])) {
     $email=$_POST['email'];
     $password=$_POST['password'];
@@ -82,7 +81,7 @@ if (isset($_POST['email'])) {
             <br>
             <input type="submit" value="Login" id="login">
         </form>
-        <p id="register">Don't have an account? <a href="#"> Register Here</a> </p><!--login.html-->
+        <p id="register">Don't have an account? <a href="../register"> Register Here</a> </p><!--login.html-->
     </div>
 
 </body>

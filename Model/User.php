@@ -66,4 +66,14 @@ Class User extends Database {
             return false;
         }
     }
+
+    public function getByEmail($email){
+   		$sql = "SELECT * FROM ".$this->tablename." where email='".$email."'";
+		return $this->runQuery($sql);
+    }
+
+    public function getById($id){
+   		$sql = "SELECT * FROM ".$this->tablename." where id='".$id."'";
+		return $this->runQuery($sql);
+    }
 }
