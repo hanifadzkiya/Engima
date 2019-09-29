@@ -1,17 +1,18 @@
+var value = document.currentScript.getAttribute('one');
 let resultContainer = document.getElementById("transaction_list");
 
-function readcookie(){
-    var allcookies = document.cookie;
-    cookiearray = allcookies.split(';');
-    for(var i=0; i<cookiearray.length; i++) {
-        name = cookiearray[i].split('=')[0];
-        if(name = "username"){
-            value = cookiearray[i].split('=')[1];
-        }
-    }
-
-    return value;
-}
+//function readcookie(){
+//    var allcookies = document.cookie;
+//    cookiearray = allcookies.split(';');
+//    for(var i=0; i<cookiearray.length; i++) {
+//        name = cookiearray[i].split('=')[0];
+//        if(name = "username"){
+//            value = cookiearray[i].split('=')[1];
+//        }
+//    }
+//
+//    return value;
+//}
 
 function displayTransLater(movie,first){
     let divContent = document.createElement("div");
@@ -53,7 +54,7 @@ function displayTransLater(movie,first){
     }
 }
 
-function displayTransReview(movie,first){
+function displayTransReview(movie,first,id){
     let divContent = document.createElement("div");
     divContent.classList.add("trans");
     if (first != true){
@@ -80,9 +81,10 @@ function displayTransReview(movie,first){
     let button= document.createElement("div")
     button.classList.add("butt");
 
+    url = "../user-review/index.php?film_id=" + id;
     let buttcontent = document.createElement("a")
     buttcontent.innerText = "Add Review";
-    buttcontent.setAttribute("href","");
+    buttcontent.setAttribute("href",url);
     buttcontent.classList.add("add");
 
     button.appendChild(buttcontent);
@@ -104,7 +106,7 @@ function displayTransReview(movie,first){
     }
 }
 
-function displayTransReviewed(movie,first){
+function displayTransReviewed(movie,first,id,uid){
     let divContent = document.createElement("div");
     divContent.classList.add("trans");
     if (first != true){
@@ -134,11 +136,14 @@ function displayTransReviewed(movie,first){
     let buttcontent1 = document.createElement("a")
     buttcontent1.innerText = "Delete Review";
     buttcontent1.setAttribute("href","");
+    param = "deleteReview(" +id+","+uid+")";
+    buttcontent1.setAttribute("onclick",param);
     buttcontent1.classList.add("delete");
 
+    url = "../user-review/index.php?film_id=" + id;
     let buttcontent2 = document.createElement("a")
     buttcontent2.innerText = "Edit Review";
-    buttcontent2.setAttribute("href","");
+    buttcontent2.setAttribute("href",url);
     buttcontent2.classList.add("edit");
 
     button.appendChild(buttcontent1);
@@ -161,17 +166,65 @@ function displayTransReviewed(movie,first){
     }
 }
 
+function deleteReview(id,uid){
+	let xhttpSubmit = new XMLHttpRequest();
+	xhttpSubmit.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(xhttpSubmit.responseText);
+        }
+	};
+    param = "film_id=" + id +"&user_id=" + uid;
+	xhttpSubmit.open("DELETE", "../api/v1/review/delete", true);
+	xhttpSubmit.send(param);
+
+}
+
+
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var movies = JSON.parse(this.responseText);
-        totalMovie = movies["data"].length;
-        for(let index = 0;index < totalMovie;index++){
-            displayMovieList(movies["data"][index]);
+        uid = movies["uid"];
+        totalMovie1 = movies["data1"].length;
+        totalMovie2 = movies["data2"].length;
+        totalMovie3 = movies["data3"].length;
+        console.log(totalMovie1);
+        console.log(totalMovie2);
+        console.log(totalMovie3);
+        if(totalMovie1 != 0){
+            first = 1;
+        } else if (totalMovie1 == 0 && totalMovie2 != 0){
+            first = 2;
+        } else if (totalMovie1 == 0 && totalMovie2 == 0 && totalMovie3 == 0){
+            first = 3;
         }
-        value = readcookie();
+        for(let index = 0;index < totalMovie1;index++){
+            if( index == 0 && first == 1){
+                displayTransLater(movies["data1"][index],true);
+            } else {
+                displayTransLater(movies["data1"][index],false);
+            }
+            
+        }
+        for(let index = 0;index < totalMovie2;index++){
+            id = movies["data2"][index]["film_id"];
+            if( index == 0 && first == 2){
+                displayTransReview(movies["data2"][index],true,id);
+                
+            } else {
+                displayTransReview(movies["data2"][index],false,id);
+            }
+        }
+        for(let index = 0;index < totalMovie3;index++){
+            id = movies["data3"][index]["film_id"];
+            if( index == 0 && first == 3){
+                displayTransReviewed(movies["data3"][index],true,id,uid);
+            } else {
+                displayTransReviewed(movies["data3"][index],false,id,uid);
+            }
+        }
     }
 };
 
-xmlhttp.open("GET","transaction.php?uname=" + value,true);
+xmlhttp.open("GET","../api/v1/transaction/transaction.php?uname=" + value,true);
 xmlhttp.send();
