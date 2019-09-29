@@ -8,7 +8,7 @@ cekCookieOther();
 <head>
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="search/style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="nav">
@@ -29,6 +29,6 @@ cekCookieOther();
 	<div id="content">
         
 	</div>
-	<script type="text/javascript" src="search/app.js"></script>
+	<script type="text/javascript" src="app.js"></script>
 </body>
 </html>

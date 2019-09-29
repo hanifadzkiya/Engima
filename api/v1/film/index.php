@@ -29,9 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     	$response["data"] = $data;
 	    $response["status"] = 200;
 	}
-	$response["message"] = "Success get film by title";
-	$response["data"] = $arr_film;
-	$response["status"] = 200;
 } else {
 	$response["message"] = "Film not found";
 	$response["status"] = 200;

@@ -51,7 +51,7 @@ Class Film extends Database {
         return $this->runQuery($sql);
     }
 
-    public function getById($id_film,$start_index,$finish_index)
+    public function getById($id_film)
     {
         $sql = "SELECT * FROM ".$this->tablename." WHERE id ='".$id_film."'";
         return $this->runQuery($sql);

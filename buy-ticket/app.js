@@ -149,11 +149,11 @@ function displayContent(jadwal){
 		       		displaySeat(responseAPIKursi["data"]);
 			    }
 			};
-			xhttpKursi.open("GET", "buy-ticket/temp2.php?jadwal_id="+jadwal["id"], true);
+			xhttpKursi.open("GET", "../buy-ticket/temp2.php?jadwal_id="+jadwal["id"], true);
 			xhttpKursi.send();
 	    }
 	};
-	xhttpJadwal.open("GET", "api/v1/film/detail?id="+jadwal["film_id"], true);
+	xhttpJadwal.open("GET", "../api/v1/film/detail?id="+jadwal["film_id"], true);
 	xhttpJadwal.send();
 }
 
@@ -170,5 +170,5 @@ xhttpJadwal.onreadystatechange = function() {
        }
     }
 };
-xhttpJadwal.open("GET", "buy-ticket/temp.php", true);
+xhttpJadwal.open("GET", "../api/v1/jadwal?jadwal_id="+jadwalId, true);
 xhttpJadwal.send();

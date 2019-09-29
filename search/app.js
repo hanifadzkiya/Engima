@@ -17,7 +17,7 @@ function displayMovieDetail(movie){
 	detailAnchor.setAttribute("href","film/detail?id"+movie["id"]);
 	let detailIcon = document.createElement("img");
 	detailIcon.classList.add("detail-icon");
-	detailIcon.src = "search/img/detail-icon.png";
+	detailIcon.src = "img/detail-icon.png";
 	detailAnchor.appendChild(detailIcon);
 	detailParagraph.appendChild(detailAnchor);
 	detailDiv.appendChild(detailParagraph);
@@ -28,7 +28,7 @@ function displayRating(rating){
 	let ratingDiv = document.createElement("div");
 	let starIcon = document.createElement("img");
 	starIcon.classList.add("star-icon")
-	starIcon.src = "search/img/star-icon.svg";
+	starIcon.src = "img/star-icon.svg";
 	let movieRating = document.createElement("p");
 	movieRating.classList.add("rating");
 	movieRating.innerText = rating;
@@ -70,7 +70,7 @@ function createMovieContainer(){
 
 function displayElementMovie(movie){
 	let movieContainer = createMovieContainer();
-	let movieImage = displayMovieImage("search/img/captain-marvel.jpg");
+	let movieImage = displayMovieImage("img/captain-marvel.jpg");
 	movieContainer.appendChild(movieImage);
 	let movieDescription = displayMovieDescription(movie["judul"],movie["rating"],movie["sinopsis"]);
 	movieContainer.appendChild(movieDescription);
@@ -170,7 +170,7 @@ if(keyword.length > 0){
 	    }
 	};
 
-	xhttp.open("GET", "api/v1/film?keyword="+keyword+"&page="+page, true);
+	xhttp.open("GET", "../api/v1/film?keyword="+keyword+"&page="+page, true);
 	xhttp.send();
 } else {
 	displayKeyword(null);

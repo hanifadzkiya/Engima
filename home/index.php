@@ -1,11 +1,12 @@
+<?php
+    require_once("../Cookie.php");
+
+    cekCookieOther();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <?php 
-            if(!isset($_COOKIE['username']) || !isset($_COOKIE['password'])){
-                header("Location: login.php");
-            }
-        ?>
         <title>Home - Engima</title>
         <link rel="stylesheet" type="text/css" href="css/index_style.css">
     </head>
@@ -15,7 +16,7 @@
             <div class="nav_content">
                 <div class="engi"><b>Engi</b>ma</div>
                 <div class="search-container">
-                    <form action="/search"><!--GANTI NANTI-->
+                    <form action="../search"+search><!--GANTI NANTI-->
                         <input type="text" placeholder="Search Movie" name="search">
                         <button type="submit"><img id="search-icon" src="images/search-icon.svg"></button>
                     </form>
