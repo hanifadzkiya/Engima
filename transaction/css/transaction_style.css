@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Lato'
+}
+.delete {
+    cursor: pointer;
+}
+/*NAVIGATION*/
+.nav{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    -webkit-box-shadow: 0px 5px 7px -2px rgba(33,33,33,0.15); 
+    box-shadow: 0px 5px 7px -2px rgba(33,33,33,0.15);
+    background-color: white;
+    padding: 15px 0;
+    z-index: 1;
+}
+.nav_content{
+    width: 67%;
+    margin: auto;
+}
+.engi {
+    float: left;
+    display: block;
+    margin-right: 20px;
+}
+.engi b{
+    color: #00C1EC;
+}
+.search-container{
+    float: left;
+    display: block;
+    margin: 0 20px;
+    border: 1px solid #c9c9c9;
+    padding: 2px 5px;
+    border-radius: 5px;
+    width: 22%;
+    min-width:100px;
+}
+.search-container input{
+    border: none;
+    width: 80%;
+    padding-left: 5px;
+}
+::placeholder{
+    color: grey;
+    font-size: 12px;
+}
+.search-container button{
+    float: right;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: grey;
+}
+
+#search-icon {
+	width: 12px;
+	height: 12px;
+}
+
+.link a {
+    float: right;
+    margin-left: 20px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+.link a:hover{
+    color: #c9c9c9;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+
+/*CONTENT*/
+.content{
+    width: 67%;
+    margin: 100px auto;
+}
+
+#transaction_list{
+    margin-top: 5%;
+}
+
+.trans{
+    display: inline-block;
+    margin-bottom: 45px;
+    height:115px;
+    width: 100%;
+}
+
+.notfirst{
+    margin-top: 45px;
+}
+.pic {
+    width:auto;
+    height:100%;
+    border-radius: 10px;
+    float:left;
+    margin-right: 20px;
+    display:block;
+}
+.butt{
+    float:right;
+    margin-top:90px;
+}
+
+.movie-detail{
+    float:left;
+    margin-top:25px;
+    width:40%;
+}
+
+.movie-detail h4{
+    margin-bottom: 5px;
+}
+
+.butt a{
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px;
+    color:#fff;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+hr{
+    margin:auto;
+    width:100%;
+    height:1px;
+    border: none;
+    background-color: #c9c9c9;
+}
+
+.add{
+    background-color: #00C1EC;
+}
+
+.delete{
+    background-color: red;
+}
+
+.edit{
+    background-color: green;
+    margin-left:10px;
+}
+
+.info{
+    font-size:12px;
+    color:grey;
+}
+
+.schedule{
+    float: left;
+    margin-right: 15px;
+    color:#00C1EC;
+}
