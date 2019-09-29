@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		$response["message"] = "Success get jadwal data";
 		$array_jadwal = Array();
 		while($jadwal = $result_jadwal->fetch_assoc()){
+	        $jadwal["tanggal"] = ((new DateTime($jadwal["jam_tayang"]))->format("M d,Y"));
+	        $jadwal["jam"] = ((new DateTime($jadwal["jam_tayang"]))->format("H:i"));
 	        $array_jadwal[] = $jadwal;
 	    }
 	    $response["data"] = $array_jadwal;
