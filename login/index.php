@@ -19,6 +19,35 @@ function checkPassword($email,$password)
     }
 }
 
+function isValid($access_token){
+    $conn = new mysqli("localhost", "root", "1256", "engima");
+    $sql = "SELECT * FROM access_token WHERE access_token = '" . $access_token . "'";
+    $result = $conn->query($sql);
+    if(mysqli_num_rows($result) > 0){
+        $row = $result->fetch_assoc();
+        $expire = $row["expire_at"];
+        if($expire > date('Y-m-d H:i:s', time())){
+            return true;
+        } else {
+            $sql = "DELETE FROM access_token WHERE access_token = '".$access_token."'";
+            $conn->query($sql);
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+function cekCookie(){
+    if(isset($_COOKIE["access_token"])){
+        if(isValid($_COOKIE["access_token"])){
+            header("Location:../home");
+            die();
+        }
+    } 
+}
+
+cekCookie();
 if (isset($_POST['email'])) {
     $email=$_POST['email'];
     $password=$_POST['password'];
@@ -31,9 +60,22 @@ if (isset($_POST['email'])) {
             $row = $result->fetch_assoc();
             $username = $row["name"];
             $user_id = $row["id"];
-            setcookie('user_id',$user_id);
-            setcookie('user', $username, 0, '/');
-            header("Location:Home.php");
+            
+            $result = $conn->query("SELECT * FROM user where user_id='".$user_id."'");
+            if(mysqli_num_rows($result) > 0){
+                print "sudah ada";
+            } else {
+                $expire_at = date('Y-m-d H:i:s', time()+18000);
+                $access_token = rand()."+".$expire_at;
+                $sql = "INSERT INTO access_token  (access_token, user_id, expire_at) VALUES ('" . $access_token . "','".$user_id."','".$expire_at."')";
+                if($conn->query($sql)){
+                    setcookie('user_id',$user_id, time()+18000,'/');
+                    setcookie('access_token', $access_token, time()+18000,'/');
+                } else {
+
+                }
+            }
+            header("Location:../home");
             die();
         } else {
             echo "<div class='alert' style='text-align:center;background-color:red;color:white;padding:10pt;'> You Have Entered Incorrect Username or Password </div>";

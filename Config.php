@@ -2,5 +2,5 @@
 return array(
     'servername' => 'localhost',
     'username' => 'root',
-    'password' => ''
+    'password' => '1256'
 );
