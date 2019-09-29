@@ -1,12 +1,15 @@
 <?php 
 
+require_once("../Cookie.php");
+
 function verify($password_input,$password_hash){
     return (crypt($password_input, $password_hash) == $password_hash);
 }
 
 function checkPassword($email,$password) 
 { 
-    $conn = new mysqli("localhost", "root", "1256", "engima");
+    global $configs;
+    $conn = new mysqli($configs["servername"], $configs["username"], $configs["password"], "engima");
     $sql = "SELECT * FROM user where email='".$email."'";
     $result = $conn->query($sql);
     if (mysqli_num_rows($result) == 1) {
@@ -19,43 +22,14 @@ function checkPassword($email,$password)
     }
 }
 
-function isValid($access_token){
-    $conn = new mysqli("localhost", "root", "1256", "engima");
-    $sql = "SELECT * FROM access_token WHERE access_token = '" . $access_token . "'";
-    $result = $conn->query($sql);
-    if(mysqli_num_rows($result) > 0){
-        $row = $result->fetch_assoc();
-        $expire = $row["expire_at"];
-        if($expire > date('Y-m-d H:i:s', time())){
-            return true;
-        } else {
-            $sql = "DELETE FROM access_token WHERE access_token = '".$access_token."'";
-            $conn->query($sql);
-            return false;
-        }
-    } else {
-        return false;
-    }
-}
-
-function cekCookie(){
-    if(isset($_COOKIE["access_token"])){
-        if(isValid($_COOKIE["access_token"])){
-            header("Location:../home");
-            die();
-        }
-    } 
-}
-
-cekCookie();
+cekCookieLogin();
 if (isset($_POST['email'])) {
     $email=$_POST['email'];
     $password=$_POST['password'];
 
     if (($email != "") && ($password != "")) {
-
         if (checkPassword($email,$password)) {
-            $conn = new mysqli("localhost", "root", "1256", "engima");
+            $conn = new mysqli($configs["servername"], $configs["username"], $configs["password"], "engima");
             $result = $conn->query("SELECT * FROM user where email='".$email."'");
             $row = $result->fetch_assoc();
             $username = $row["name"];
