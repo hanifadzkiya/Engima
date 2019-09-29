@@ -23,9 +23,9 @@ function displayExistingReview(review){
 }
 
 function submit(){
-	let review = document.getElementById("review").innerText;
+	let review = document.getElementById("review").value;
 	let rating;
-	for(let index = 1;index <= 5;index++){
+	for(let index = 1;index <= 10;index++){
 		let ratingStar = document.getElementById("star" + index);
 		if(ratingStar.checked){
 			rating = index;
@@ -34,18 +34,13 @@ function submit(){
 	let xhttpSubmit = new XMLHttpRequest();
 	xhttpSubmit.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	       // Typical action to be performed when the document is ready:
-	       // let response = JSON.parse(xhttpSubmit.responseText);
-	       // if(response["message"] = "Success get review by film and user"){
-	       // 		displayExistingReview(response["data"][0]);
-	       // } 
-	       console.log(xhttpSubmit.responseText);
+	       
 	    }
 	};
 	console.log(methoded);
 	xhttpSubmit.open(methoded, "../api/v1/review/"+type+"/index.php", true);
 	xhttpSubmit.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xhttpSubmit.send("film_id="+film_id+"&film_id="+film_id+"&rating="+rating+"&review="+review);
+	xhttpSubmit.send("film_id="+film_id+"&user_id="+user_id+"&rating="+rating+"&review="+review);
 
 }
 
@@ -66,3 +61,17 @@ xhttp.onreadystatechange = function() {
 
 xhttp.open("GET", "../api/v1/review/user?film_id="+film_id+"&user_id="+user_id, true);
 xhttp.send();
+
+
+let xhttpFilm = new XMLHttpRequest();
+
+xhttpFilm.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       let filmResponse = JSON.parse(xhttpFilm.responseText);
+       let title = document.getElementById("movie-name");
+       title.innerHTML += filmResponse["data"]["judul"];
+    }
+};
+
+xhttpFilm.open("GET", "../api/v1/film/detail?id="+film_id, true);
+xhttpFilm.send();

@@ -15,6 +15,9 @@
 	a {
 		text-decoration: none;
 	}
+	#history {
+		color: white;
+	}
 	#back {
 		width: 50px; 
 		height: 50px;

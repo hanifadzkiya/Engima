@@ -12,21 +12,21 @@ cekCookieOther();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <body>
-        <div class="nav">
-            <div class="nav_content">
-                <div class="engi"><b>Engi</b>ma</div>
-                <div class="search-container">
-                    <form action="/action_page.php"><!--GANTI NANTI-->
-                        <input type="text" placeholder="Search Movie" name="search">
-                        <button type="submit"><img id="search-icon" src="images/search-icon.svg"></button>
-                    </form>
-                </div>
-                <div class="link">
-                    <a href="#">Logout</a>
-                    <a href="#">Transactions</a>
-                </div>
+    <div class="nav">
+        <div class="nav_content">
+            <div class="engi"><a href="../home"><b>Engi</b>ma</a></div>
+            <div class="search-container">
+                <form action="../search?keyword="+keyword><!--GANTI NANTI-->
+                    <input type="text" placeholder="Search Movie" name="keyword">
+                    <button type="submit"><img id="search-icon" src="img/search-icon.svg"></button>
+                </form>
+            </div>
+            <div class="link">
+                <a href="../logout">Logout</a>
+                <a href="../transaction">Transactions</a>
             </div>
         </div>
+    </div>
 
         <div class="content">
             <h3>Transaction History</h3>

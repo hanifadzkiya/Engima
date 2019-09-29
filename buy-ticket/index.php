@@ -49,7 +49,7 @@ cekCookieOther();
         <div class="modal-content">
             <h2 id="payment-success">Payment Success</h2>
             <p>Thank you for purchasing! You can view your purchase now.</p>
-            <div class="button">Go To Transaction History</div>
+            <div class="button"><a href="../transaction" id="history">Go To Transaction History</a></div>
         </div>
     </div>
 	<script type="text/javascript" src="app.js"></script>

@@ -154,7 +154,7 @@ function getSchedule(movie){
 	       displayJadwal(responseJadwal["data"],movie);
 	    }
 	};
-	xhttpJadwal.open("GET", "../api/v1/jadwal/film?film_id="+filmId, true);
+	xhttpJadwal.open("GET", "../api/v1/jadwal/after?film_id="+filmId, true);
 	xhttpJadwal.send();
 }
 

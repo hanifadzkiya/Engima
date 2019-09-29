@@ -15,7 +15,7 @@ cekCookieOther();
         <div class="nav_content">
             <div class="engi"><a href="../home"><b>Engi</b>ma</a></div>
             <div class="search-container">
-                <form action="../search?keyword="+keyworc><!--GANTI NANTI-->
+                <form action="../search?keyword="+keyword><!--GANTI NANTI-->
                     <input type="text" placeholder="Search Movie" name="keyword">
                     <button type="submit"><img id="search-icon" src="img/search-icon.svg"></button>
                 </form>
@@ -29,7 +29,7 @@ cekCookieOther();
 	<div id="content">
 		<h2 id="movie-name">
 			<img src="../images/chevron-left.svg"  onclick="back()">
-			The Avengers
+			
 		</h2>
 		<div id="user-review-container">
 			<div class="user-review-column">

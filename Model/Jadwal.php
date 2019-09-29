@@ -54,4 +54,12 @@ Class Jadwal extends Database {
         return $this->runQuery($sql);
     }
 
+    public function getByFilmIdAfter($film_id)
+    {
+
+    	$now = date("Y-m-d H:i:s", time());
+        $sql = "SELECT * FROM ".$this->tablename." WHERE film_id = '".$film_id."' AND jam_tayang > '". $now ."'";
+        return $this->runQuery($sql);
+    }
+
 }
