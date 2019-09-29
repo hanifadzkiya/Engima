@@ -15,7 +15,7 @@
     //$yesterday2 = date_sub($date,date_interval_create_from_date_string("2 days"));
     //$date3 = $yesterday2->format('Y-m-d') . "%";
 
-    $sql = "SELECT * FROM film WHERE tanggal_rilis >= '$today' AND tanggal_rilis LIKE '$today2'";
+    $sql = "SELECT * FROM jadwal JOIN film ON jadwal.film_id = film.id WHERE jadwal.jam_tayang >= '$today' AND jadwal.jam_tayang LIKE '$today2'";
     $resultFilm = mysqli_query($db,$sql);
     $arrFilm = Array();
     $response = Array();
